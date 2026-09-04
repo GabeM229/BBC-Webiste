@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#8a0000" />
+  <meta name="description" content="BBC — BEAST Broadcasting Corporation. Unofficial parody coverage of the Tuks Rowing B Men at Universities Boat Race." />
+  <title>BBC | BEAST Broadcasting Corporation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="top-strip">
+    <div class="brand">
+      <span class="brand-box">B</span><span class="brand-box">B</span><span class="brand-box">C</span>
+      <div class="brand-copy">
+        <strong>BEAST BROADCASTING CORPORATION</strong>
+        <small>Definitely not the British one.</small>
+      </div>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </div>
+
+  <nav class="nav" id="nav">
+    <a href="#top">Home</a>
+    <a href="#crew">News Team</a>
+    <a href="#segments">Segments</a>
+    <a href="#markets">Markets</a>
+    <a href="#kak-chair">Kak Chair</a>
+    <a href="#tour">Boat Race</a>
+  </nav>
+
+  <div class="breaking">
+    <span class="breaking-label">BREAKING</span>
+    <div class="ticker" aria-live="polite">
+      <div id="tickerText">BEAST crew officially confirms existence of journalism department.</div>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <div class="eyebrow">UNIVERSITIES BOAT RACE • KOWIE RIVER</div>
+        <h1>Eight men. One boat. Absolutely no editorial standards.</h1>
+        <p class="dek">
+          The Tuks Rowing B Men have launched their own newsroom for tour.
+          Experts are calling it “deeply unnecessary” and “surprisingly well branded.”
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#crew">Meet the newsroom</a>
+          <button class="btn ghost" id="randomHeadline">Generate breaking news</button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="live-row">
+          <span class="live-dot"></span>
+          <span>LIVE FROM THE KOWIE</span>
+        </div>
+        <div class="placeholder hero-photo">
+          <div>
+            <span>CREW PHOTO</span>
+            <small>Drop your group photo in later</small>
+          </div>
+        </div>
+        <div class="hero-card-caption">
+          <strong>BBC NEWSROOM EXCLUSIVE</strong>
+          <span>Sources confirm eight men have arrived with one functioning collective brain cell.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="headline-grid shell">
+      <article class="lead-story">
+        <div class="story-tag">TOP STORY</div>
+        <h2>BEAST newsroom deployed to Universities Boat Race after “serious concerns” over lack of nonsense</h2>
+        <p>
+          BBC correspondents will provide wall-to-wall coverage from the Kowie River,
+          including sport, weather, finance, traffic, gossip, surfing and one reporter
+          whose entire beat is apparently being missing.
+        </p>
+        <button class="text-link article-open" data-article="tour">Read the developing story →</button>
+      </article>
+
+      <aside class="side-stack">
+        <article>
+          <span class="mini-tag">WEATHER</span>
+          <h3>Shane predicts 100% chance of water near the boat</h3>
+          <button class="text-link article-open" data-article="shane">Full forecast →</button>
+        </article>
+        <article>
+          <span class="mini-tag">MARKETS</span>
+          <h3>BEAST confidence index rises 900% on absolutely no evidence</h3>
+          <button class="text-link article-open" data-article="byron">Market analysis →</button>
+        </article>
+        <article>
+          <span class="mini-tag">DEVELOPING</span>
+          <h3>Brynn still missing. Reporter assigned: Brynn.</h3>
+          <button class="text-link article-open" data-article="brynn">Search effort →</button>
+        </article>
+      </aside>
+    </section>
+
+    <section class="section shell" id="crew">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">THE BBC NEWS TEAM</div>
+          <h2>Meet the least trusted names in rowing journalism</h2>
+        </div>
+        <p>Photos can be added later without changing the layout.</p>
+      </div>
+
+      <div class="crew-grid">
+        <article class="crew-card">
+          <div class="portrait placeholder"><span>NJ</span></div>
+          <div class="role">NEWS ANCHOR</div>
+          <h3>Nick J</h3>
+          <p>The face of the broadcast. Reads the teleprompter with confidence even when the teleprompter is wrong.</p>
+          <button class="text-link article-open" data-article="nick">View profile →</button>
+        </article>
+
+        <article class="crew-card">
+          <div class="portrait placeholder"><span>SH</span></div>
+          <div class="role">WEATHER MAN</div>
+          <h3>Shane</h3>
+          <p>Standing beside a river, bravely reporting that conditions may be “a bit wet.”</p>
+          <button class="text-link article-open" data-article="shane">View profile →</button>
+        </article>
+
+        <article class="crew-card">
+          <div class="portrait placeholder"><span>BY</span></div>
+          <div class="role">STOCK GUY</div>
+          <h3>Byron</h3>
+          <p>Tracks the only index that matters: vibes, snacks and the rapidly collapsing price of crew dignity.</p>
+          <button class="text-link article-open" data-article="byron">View profile →</button>
+        </article>
+
+        <article class="crew-card">
+          <div class="portrait placeholder"><span>JA</span></div>
+          <div class="role">SPORTS GUY</div>
+          <h3>Jared</h3>
+          <p>Has been asked to cover rowing, despite clear allegations that he may now discuss every sport except rowing.</p>
+          <button class="text-link article-open" data-article="jared">View profile →</button>
+        </article>
+
+        <article class="crew-card">
+          <div class="portrait placeholder"><span>BR</span></div>
+          <div class="role">MISSING PERSON REPORTER</div>
+          <h3>Brynn</h3>
+          <p>Investigating a missing-person case from an undisclosed location. The missing person is, regrettably, Brynn.</p>
+          <button class="text-link article-open" data-article="brynn">View profile →</button>
+        </article>
+
+        <article class="crew-card">
+          <div class="portrait placeholder"><span>OL</span></div>
+          <div class="role">SURF REPORTER</div>
+          <h3>Oli</h3>
+          <p>Provides surf analysis from a rowing regatta because somebody signed off on this segment.</p>
+          <button class="text-link article-open" data-article="oli">View profile →</button>
+        </article>
+
+        <article class="crew-card">
+          <div class="portrait placeholder"><span>LI</span></div>
+          <div class="role">TRAFFIC</div>
+          <h3>Liam</h3>
+          <p>Monitoring severe congestion between the boat racks, breakfast table and wherever the trailer is parked.</p>
+          <button class="text-link article-open" data-article="liam">View profile →</button>
+        </article>
+
+        <article class="crew-card">
+          <div class="portrait placeholder"><span>GG</span></div>
+          <div class="role">GOSSIP GALS WITH GABY</div>
+          <h3>Gabriel “Gaby”</h3>
+          <p>One man. One microphone. Several allegations. Zero obligation to verify any of them.</p>
+          <button class="text-link article-open" data-article="gaby">View profile →</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dark-panel" id="segments">
+      <div class="shell">
+        <div class="section-heading light">
+          <div>
+            <div class="eyebrow">PROGRAMMING</div>
+            <h2>Tonight on BBC</h2>
+          </div>
+          <p>Investigative journalism has officially peaked.</p>
+        </div>
+
+        <div class="program-grid">
+          <article>
+            <div class="time">05:00</div>
+            <h3>Wake Up, Unfortunately</h3>
+            <p>Live scenes as the crew discovers there is, in fact, a five in the morning.</p>
+          </article>
+          <article>
+            <div class="time">06:30</div>
+            <h3>The Kowie Forecast</h3>
+            <p>Shane points at graphics and makes meteorology everyone else’s problem.</p>
+          </article>
+          <article>
+            <div class="time">12:00</div>
+            <h3>Gossip Gals with Gaby</h3>
+            <p>Unverified sources. Extremely verified confidence.</p>
+          </article>
+          <article>
+            <div class="time">14:00</div>
+            <h3>Keeping Up With the Kak Chair</h3>
+            <p>Hard-hitting interviews conducted from the least dignified seat in South African sport.</p>
+          </article>
+          <article>
+            <div class="time">16:30</div>
+            <h3>BEAST Market Close</h3>
+            <p>Byron explains why morale is bullish while bank balances remain deeply bearish.</p>
+          </article>
+          <article>
+            <div class="time">LATE</div>
+            <h3>Sus Records After Dark</h3>
+            <p>The Beats Crew takes over the aux. Editorial oversight immediately resigns.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="markets">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">BBC BUSINESS</div>
+          <h2>BEAST Exchange</h2>
+        </div>
+        <p>Figures may be delayed by several beers and one coin flip.</p>
+      </div>
+
+      <div class="market-board">
+        <div class="market-row"><span>BEAST Confidence</span><strong>+912.4%</strong><em>▲</em></div>
+        <div class="market-row"><span>Sleep Futures</span><strong>-84.1%</strong><em>▼</em></div>
+        <div class="market-row"><span>Boat Packing Efficiency</span><strong>+0.03%</strong><em>▲</em></div>
+        <div class="market-row"><span>Sus Records</span><strong>LIMIT UP</strong><em>▲</em></div>
+        <div class="market-row"><span>Dignity Holdings</span><strong>0.00</strong><em>▼</em></div>
+      </div>
+    </section>
+
+    <section class="section quote-section" id="kak-chair">
+      <div class="shell">
+        <div class="eyebrow">BBC INVESTIGATES</div>
+        <h2>Keeping Up With the Kak Chair</h2>
+        <p class="big-quote">
+          “We ask the questions nobody else is brave enough to ask,
+          mostly because nobody else thought they were worth asking.”
+        </p>
+        <p>
+          A recurring toilet-interview feature exposing the real personalities behind
+          the lycra. Guests should expect rapid-fire questions, no preparation and
+          absolutely nowhere dignified to sit.
+        </p>
+      </div>
+    </section>
+
+    <section class="section shell" id="tour">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">TOUR DESK</div>
+          <h2>Universities Boat Race: Kowie River</h2>
+        </div>
+      </div>
+      <div class="tour-grid">
+        <article class="tour-card">
+          <span>FRIDAY</span>
+          <h3>05:00 arrival</h3>
+          <p>BBC begins broadcasting before the crew’s personalities have loaded.</p>
+        </article>
+        <article class="tour-card">
+          <span>SATURDAY</span>
+          <h3>Boat packing</h3>
+          <p>Eight engineering-level opinions applied to one trailer strap.</p>
+        </article>
+        <article class="tour-card">
+          <span>SUNDAY</span>
+          <h3>Midday-ish + photos</h3>
+          <p>Shirts, crew shots and photographic evidence that this newsroom existed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section culture">
+      <div class="shell culture-grid">
+        <div>
+          <div class="eyebrow">STYLE DESK</div>
+          <h2>Official newsroom dress code*</h2>
+          <p>Suit jackets. Racing socks. Fancy shoes. Trisuits. Questionable glasses.</p>
+          <p class="fine">*The word “official” is being used very generously.</p>
+        </div>
+        <div>
+          <div class="eyebrow">HAIR & BEAUTY</div>
+          <h2>80s newsroom emergency kit</h2>
+          <p>Mohawks. Headbands. Hairspray. An amount of confidence inversely proportional to taste.</p>
+        </div>
+        <div>
+          <div class="eyebrow">MASCOT DESK</div>
+          <h2>Fish vs. Piggy Bank</h2>
+          <p>The BBC mascot race remains too close to call. Democracy may eventually be replaced by a coin flip.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div>
+        <div class="brand footer-brand">
+          <span class="brand-box">B</span><span class="brand-box">B</span><span class="brand-box">C</span>
+        </div>
+        <p>BEAST Broadcasting Corporation</p>
+      </div>
+      <p>
+        An unofficial parody project by the Tuks Rowing B Men.
+        Not affiliated with the BBC or presented as official University of Pretoria communications.
+      </p>
+    </div>
+  </footer>
+
+  <dialog id="articleModal">
+    <button class="close-btn" id="closeModal" aria-label="Close article">×</button>
+    <div class="modal-tag" id="modalTag">BBC NEWS</div>
+    <h2 id="modalTitle"></h2>
+    <p class="modal-dek" id="modalDek"></p>
+    <div id="modalBody"></div>
+  </dialog>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
