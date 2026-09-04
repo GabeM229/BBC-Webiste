@@ -1,43 +1,55 @@
 # BBC — BEAST Broadcasting Corporation
 
-Unofficial parody website for the Tuks Rowing B Men / BEAST crew at Universities Boat Race on the Kowie River.
+An unofficial parody-news website for the Tuks Rowing B Men at Universities Boat Race on the Kowie River.
 
-## Files
-- `index.html` — website content
-- `styles.css` — visual design + mobile responsiveness
-- `script.js` — ticker, article popups, mobile menu, random headline generator
+## What changed in this version
 
-## Add crew photos later
+- 20-item rotating breaking-news feed and 18 random breaking-news alerts
+- Eight new developing-story cards with full popup articles
+- A full Nick J anchor feature with lower-third, ego meter and absurd anchor statistics
+- Expanded BBC Sport match centre, power rankings and live commentary for Jared
+- A complete Kowie surf desk, fake buoy, forecast and surf glossary for Oli
+- Ten fake BEAST market listings and a new market summary for Byron
+- Expanded broadcast schedule and updated crew profiles
+- Improved mobile navigation, keyboard focus and reduced-motion support
 
-The current site uses letter placeholders. The easiest way to replace one:
+## Files to upload
 
-1. Put the photo in a new `images` folder, e.g. `images/nick.jpg`.
-2. In `index.html`, find:
-   `<div class="portrait placeholder"><span>NJ</span></div>`
-3. Replace it with:
-   `<img class="portrait" src="images/nick.jpg" alt="Nick J">`
+Keep these files together in the root of the GitHub repository:
 
-For the group image, replace the `.hero-photo` placeholder with:
-`<img class="hero-photo" src="images/crew.jpg" alt="BEAST crew">`
-
-If needed, add this to `styles.css`:
-```
-img.portrait, img.hero-photo {
-  width: 100%;
-  object-fit: cover;
-}
+```text
+index.html
+styles.css
+script.js
+README.md
 ```
 
-## Publish it free
+To update the existing GitHub Pages site, open the `BBC-Webiste` repository, choose **Add file → Upload files**, upload the four replacement files, then commit the changes. GitHub Pages should republish automatically.
 
-### GitHub Pages
-1. Create a new GitHub repository.
-2. Upload these three website files.
-3. In repository Settings → Pages, deploy from the `main` branch.
-4. GitHub will give you a public URL.
+## Adding photos later
 
-### Netlify
-Drag the whole site folder into Netlify's manual deploy area. It will generate a public link.
+The current photo areas are intentionally placeholders. When the crew photos are ready, add an `images` folder and replace the placeholder blocks in `index.html` with image tags. The card proportions are already reserved, so the layout will not need to be redesigned.
 
-## Important
-This site is intentionally styled as a parody newsroom. It includes a footer stating that it is unofficial and not affiliated with the BBC or presented as official University of Pretoria communications.
+Suggested structure:
+
+```text
+BBC-Webiste/
+├── index.html
+├── styles.css
+├── script.js
+├── README.md
+└── images/
+    ├── crew.jpg
+    ├── nick.jpg
+    ├── shane.jpg
+    ├── byron.jpg
+    ├── jared.jpg
+    ├── brynn.jpg
+    ├── oli.jpg
+    ├── liam.jpg
+    └── gaby.jpg
+```
+
+## Parody notice
+
+Every story, statistic, market value and scandal on the site is fictional and written for comedy. The project is not affiliated with the BBC and is not an official University of Pretoria communication.
