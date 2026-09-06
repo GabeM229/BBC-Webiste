@@ -55,7 +55,7 @@ const articles = {
     title: "Jared unveils revolutionary sports coverage with occasional mention of rowing",
     dek: "BBC Sport has promised comprehensive analysis, dramatic replays and at least one opinion delivered far too confidently.",
     body: `
-      <p class="credential-line"><strong>BBC qualification:</strong> <em>Currently under review by the Department of Confident Opinions</em>.</p><p>Jared Kyle Kabo Armstrong takes charge of the sports desk with a mandate to explain racing, rival crews and why every result was somehow part of the plan.</p>
+      <p class="credential-line"><strong>BBC qualification:</strong> <em>BAdmin in Matchday Administration, Tactical Hot Takes & Confident Sideline Analysis</em>.</p><p>Jared Kyle Kabo Armstrong takes charge of the sports desk with a mandate to explain racing, rival crews and why every result was somehow part of the plan.</p>
       <p>Pre-race analysis will focus on boat speed, lane conditions, crew psychology and whichever statistic sounds most impressive on camera.</p>
       <p>Post-race analysis will be adjusted retroactively to prove the pre-race analysis was correct.</p><p>Additional programming includes unsolicited power rankings, stroke-by-stroke tactical telestration and a recurring feature titled <em>Why That Was Actually Massive</em>, in which routine sporting events are treated as continental emergencies.</p>`
   },

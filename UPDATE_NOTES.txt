@@ -1,1 +1,1 @@
-Replace index.html, styles.css, and script.js in your GitHub repo. This version removes the actual degree/course text and keeps only the parody BBC qualification.
+Replace index.html, styles.css, and script.js in your GitHub repo. Also replace your current nick.jpg with the included nick.jpg. This update changes Jared's qualification to match BAdmin and updates Nick's photo.
