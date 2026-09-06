@@ -1,0 +1,22 @@
+BEAST BBC — PSEUDO LIVE VIDEO
+
+Upload these three files to replace the current versions:
+- index.html
+- styles.css
+- script.js
+
+TO POST A NEW TOUR VIDEO:
+1. Export the clip as MP4.
+2. Rename it exactly: latest-live.mp4
+3. Upload it to the ROOT of your GitHub repo, beside index.html.
+4. If latest-live.mp4 already exists, replace/delete-and-upload it.
+5. Commit the change and wait for GitHub Pages to redeploy.
+6. Refresh the website. The PSEUDO LIVE player will show the new clip.
+
+Recommended video:
+- MP4 (H.264) for maximum browser compatibility
+- 16:9 landscape if possible
+- 1080p or 720p
+- Keep clips reasonably short so the GitHub repo doesn't become enormous
+
+When no latest-live.mp4 exists, the site shows an OFF AIR newsroom placeholder instead of a broken player.

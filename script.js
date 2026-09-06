@@ -175,3 +175,29 @@ document.getElementById("randomHeadline").addEventListener("click", () => {
   toast.classList.add("show");
   toastTimer = setTimeout(() => toast.classList.remove("show"), 4200);
 });
+
+
+// Pseudo-live tour video: upload/replace latest-live.mp4 in the repo root.
+const tourVideo = document.getElementById("tourVideo");
+const videoOffAir = document.getElementById("videoOffAir");
+const videoStatus = document.getElementById("videoStatus");
+
+if (tourVideo && videoOffAir) {
+  const showVideo = () => {
+    videoOffAir.classList.add("hidden");
+    if (videoStatus) videoStatus.textContent = "LATEST DISPATCH";
+  };
+  const showOffAir = () => {
+    videoOffAir.classList.remove("hidden");
+    if (videoStatus) videoStatus.textContent = "OFF AIR";
+  };
+
+  tourVideo.addEventListener("loadedmetadata", showVideo);
+  tourVideo.addEventListener("canplay", showVideo);
+  tourVideo.addEventListener("error", showOffAir);
+
+  // If the MP4 is missing, the browser may report the source error asynchronously.
+  setTimeout(() => {
+    if (tourVideo.readyState === 0) showOffAir();
+  }, 1500);
+}

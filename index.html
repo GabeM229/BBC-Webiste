@@ -79,6 +79,36 @@
           whose entire beat is apparently being missing.
         </p>
         <button class="text-link article-open" data-article="tour">Read the developing story →</button>
+
+        <section class="pseudo-live">
+          <div class="pseudo-live-head">
+            <div>
+              <span class="pseudo-live-badge"><span class="live-dot"></span> PSEUDO LIVE</span>
+              <span class="pseudo-live-location">KOWIE RIVER • BEAST FIELD UNIT</span>
+            </div>
+            <span class="pseudo-live-status" id="videoStatus">LATEST DISPATCH</span>
+          </div>
+
+          <div class="video-frame">
+            <video id="tourVideo" controls playsinline preload="metadata">
+              <source src="latest-live.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="video-offair" id="videoOffAir">
+              <strong>BBC FIELD UNIT CURRENTLY OFF AIR</strong>
+              <span>Upload <b>latest-live.mp4</b> to GitHub when the next highly professional report arrives.</span>
+            </div>
+          </div>
+
+          <div class="pseudo-live-copy">
+            <div class="mini-tag">LATEST FROM TOUR</div>
+            <h3>Live-ish from the Kowie: whatever happened five minutes ago is now national news.</h3>
+            <p>
+              During tour, replace <strong>latest-live.mp4</strong> in the GitHub repository
+              and this player becomes the newest BBC field report.
+            </p>
+          </div>
+        </section>
       </article>
 
       <aside class="side-stack">
