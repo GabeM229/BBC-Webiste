@@ -6,7 +6,7 @@ const tickerItems = [
   "SPORT: Jared confirms rowing is one of several sports currently happening.",
   "DEVELOPING: Brynn launches search for Brynn; no suspects ruled out.",
   "TRAFFIC: Liam reports severe congestion near boat trailer. One flip-flop involved.",
-  "GOSSIP: Gaby has heard something. Sources already regret speaking.",
+  "GOSSIP: The Rumour Mill has heard something. Sources already regret speaking.",
   "SURF: Oli upgrades tiny boat wake to 'clean overhead potential' pending further exaggeration.",
   "EXCLUSIVE: Kak Chair secures highest-profile interview of the season.",
   "BREAKING: Nick requests 'ANCHOR OF THE CENTURY' lower-third; graphics department complies under protest.",
@@ -16,7 +16,7 @@ const tickerItems = [
   "DEVELOPING: Boat packing enters sixth hour after discovery of one unidentified strap.",
   "SURF ALERT: Oli spots foam. Entire surf desk placed on high alert.",
   "TRAFFIC: Liam announces alternate route around rigger congestion; nobody listens.",
-  "GOSSIP: Gaby says the paddock is talking. The paddock denies this.",
+  "GOSSIP: Gabriel says the paddock is talking. The paddock denies this.",
   "BREAKING: BBC budget redirected to Nick’s entrance music and unnecessary desk lighting.",
   "SPORT: Replay confirms every BEAST stroke looked faster in Jared’s commentary."
 ]
@@ -86,12 +86,12 @@ const articles = {
       <p>Early reports indicate delays caused by boat packing, missing kit and eight people simultaneously asking where the same item is.</p>
       <p>An alternate route has been proposed. Nobody will use it.</p>`
   },
-  gaby: {
+  gabriel: {
     tag: "BBC ENTERTAINMENT",
-    title: "Gossip Gals with Gaby launches with one host, zero gals and unlimited allegations",
-    dek: "Gabriel Luke Soares Moustakis — “Gaby” on air — takes viewers inside the stories other desks are too responsible to touch.",
+    title: "The Rumour Mill launches with one correspondent, unlimited allegations and a dangerous relationship with the phrase “apparently”",
+    dek: "Gabriel Luke Soares Moustakis, operating under the deeply unnecessary on-air title “The Rumour Mill,” takes viewers inside the stories other desks are too responsible to touch.",
     body: `
-      <p>Gaby's gossip desk will cover suspicious behaviour, tour lore, wardrobe crimes, unexplained disappearances and statements beginning with “apparently...”</p>
+      <p>The Rumour Mill will cover suspicious behaviour, tour lore, wardrobe crimes, unexplained disappearances and statements beginning with “apparently...”</p>
       <p>Every scoop will be delivered with maximum conviction and a minimum acceptable relationship with evidence.</p>
       <p>Legal has requested that the phrase “allegedly” be added to the autocue.</p>`
   },
@@ -154,7 +154,7 @@ const randomHeadlines = [
   "SPORT: BEAST rises to No.1 in newly-created Global Boats That Jared Rates Index.",
   "INVESTIGATION: Brynn spotted interviewing himself about own disappearance.",
   "TRAFFIC: Rigger causes multi-person pile-up in narrow corridor.",
-  "GOSSIP: Gaby confirms sources are close to the crew because they are literally the crew.",
+  "GOSSIP: The Rumour Mill confirms its sources are close to the crew because they are literally the crew.",
   "SURF: Oli calls 9-second boat wake ‘a sneaky little runner’ and begins full analysis.",
   "SURF: Kowie declared 2% more glassy after someone stops walking near the bank.",
   "CULTURE: Mohawk proposal advances to final committee stage after zero committee meetings.",

@@ -416,3 +416,11 @@ dialog h2 { font-family: Georgia, serif; font-size: clamp(28px, 5vw, 45px); line
 
 @media(max-width:900px){ .feature-grid{grid-template-columns:1fr;} .surf-grid{grid-template-columns:1fr 1fr;} .surf-card.big{grid-column:1/-1; grid-row:auto;} }
 @media(max-width:620px){ .surf-grid{grid-template-columns:1fr;} .surf-card.big{grid-column:auto;} }
+
+.onair-name {
+  margin: -2px 16px 10px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  color: #a40000;
+}
