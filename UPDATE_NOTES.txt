@@ -1,9 +1,1 @@
-BEAST BBC — DEGREE / CREDENTIAL UPDATE
-
-Replace these three files in your GitHub repository:
-- index.html
-- styles.css
-- script.js
-
-This version preserves the pseudo-live video section and adds each member's real course plus a parody BBC qualification.
-Jared remains a placeholder until his course is supplied.
+Replace index.html, styles.css, and script.js in your GitHub repo. This version removes the actual degree/course text and keeps only the parody BBC qualification.
