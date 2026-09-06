@@ -27,7 +27,7 @@ const articles = {
     title: "Nick Glen Judelsohn assumes command of all known journalism",
     dek: "The BBC anchor describes himself as a broadcaster, statesman, thought leader, cultural institution and 'the man Kowie River has been waiting for'.",
     body: `
-      <p>Nick Glen Judelsohn enters Universities Boat Race not merely as a news anchor, but as what his own press release calls “the defining media presence of his generation.” The press release was written by Nick.</p>
+      <p class="credential-line"><strong>Academic file:</strong> BCom General. BBC has reclassified this as a <em>BCom in General Broadcasting, Executive Presence & Commercial Self-Promotion</em>.</p><p>Nick Glen Judelsohn enters Universities Boat Race not merely as a news anchor, but as what his own press release calls “the defining media presence of his generation.” The press release was written by Nick.</p>
       <p>His contract allegedly requires two cameras minimum, dramatic entrance music, a chair positioned three centimetres higher than every correspondent’s, and a lower-third reading <strong>NICK GLEN JUDELSOHN — GLOBAL CHIEF ANCHOR & NATIONAL TREASURE</strong>.</p>
       <p>Nick has repeatedly reminded staff that he does not “read the news”; the news occurs in his presence. When correspondents finish a report, he plans to stare silently into camera for three seconds before saying, “Extraordinary journalism. Back to me.”</p>
       <p>Management attempted to impose a 40% limit on Nick’s screen time. Nick responded by interviewing management live.</p>`
@@ -37,7 +37,7 @@ const articles = {
     title: "Shane issues historic Kowie forecast: water likely, wind possible, vibes unstable",
     dek: "The BBC meteorology department has invested heavily in pointing at things and saying 'that looks rough'.",
     body: `
-      <p>Shane Luke Mearns has been deployed as chief weather correspondent, providing live updates on conditions that everybody standing outside can already see.</p>
+      <p class="credential-line"><strong>Academic file:</strong> BSc Geography & Environmental Science, majoring in Ecology. BBC equivalent: <em>Applied Weather Pointing, River Ecology & Saying “that looks rough”</em>.</p><p>Shane Luke Mearns has been deployed as chief weather correspondent, providing live updates on conditions that everybody standing outside can already see.</p>
       <p>Forecast models currently show a strong chance of headwind whenever BEAST is racing and a suspicious tailwind for literally everyone else.</p>
       <p>Viewers are advised to prepare for scattered spray, isolated sunburn and a 100% chance of someone blaming conditions.</p>`
   },
@@ -46,7 +46,7 @@ const articles = {
     title: "Byron opens BEAST Exchange as confidence reaches record high and cash reaches record low",
     dek: "Analysts remain bullish on morale, bearish on sleep and deeply concerned about the snack economy.",
     body: `
-      <p>Byron Alexander Sikiotis will report live from the financial district, currently believed to be somewhere between the accommodation and the nearest shop.</p>
+      <p class="credential-line"><strong>Academic file:</strong> BSc Accounting. BBC equivalent: <em>Vibes Valuation, Dignity Depreciation & Aggressive Snack Auditing</em>.</p><p>Byron Alexander Sikiotis will report live from the financial district, currently believed to be somewhere between the accommodation and the nearest shop.</p>
       <p>Key indicators include the BEAST Confidence Index, Boat Packing Futures, Sus Records and Dignity Holdings, which has now lost almost its entire market capitalisation.</p>
       <p>Investors are reminded that past performance is no guarantee of future rowing performance, especially after a late night.</p>`
   },
@@ -55,7 +55,7 @@ const articles = {
     title: "Jared unveils revolutionary sports coverage with occasional mention of rowing",
     dek: "BBC Sport has promised comprehensive analysis, dramatic replays and at least one opinion delivered far too confidently.",
     body: `
-      <p>Jared Kyle Kabo Armstrong takes charge of the sports desk with a mandate to explain racing, rival crews and why every result was somehow part of the plan.</p>
+      <p class="credential-line"><strong>Academic file:</strong> Degree TBC. BBC Sport says his qualification is <em>currently under review by the Department of Confident Opinions</em>.</p><p>Jared Kyle Kabo Armstrong takes charge of the sports desk with a mandate to explain racing, rival crews and why every result was somehow part of the plan.</p>
       <p>Pre-race analysis will focus on boat speed, lane conditions, crew psychology and whichever statistic sounds most impressive on camera.</p>
       <p>Post-race analysis will be adjusted retroactively to prove the pre-race analysis was correct.</p><p>Additional programming includes unsolicited power rankings, stroke-by-stroke tactical telestration and a recurring feature titled <em>Why That Was Actually Massive</em>, in which routine sporting events are treated as continental emergencies.</p>`
   },
@@ -64,7 +64,7 @@ const articles = {
     title: "Urgent search launched for missing-person reporter Brynn, led by missing-person reporter Brynn",
     dek: "Authorities say the investigation is complicated by the lead investigator also being the subject of the investigation.",
     body: `
-      <p>Brynn Thomas Rawlins' live reports will follow the developing disappearance of Brynn, last seen moments before being asked to appear on camera.</p>
+      <p class="credential-line"><strong>Academic file:</strong> BEng Mechanical Engineering. BBC equivalent: <em>Mechanical Search Systems, Self-Recovery & Advanced Disappearance Dynamics</em>.</p><p>Brynn Thomas Rawlins' live reports will follow the developing disappearance of Brynn, last seen moments before being asked to appear on camera.</p>
       <p>Witnesses describe the missing man as “probably nearby.” Search teams are focusing on bedrooms, bathrooms, the trailer and any location with plausible deniability.</p>
       <p>Anyone with information is asked to contact BBC, preferably before the next segment.</p>`
   },
@@ -73,7 +73,7 @@ const articles = {
     title: "Oli sent to cover surf at rowing event in landmark victory for editorial confusion",
     dek: "There may not be surf. That has not stopped the surf desk.",
     body: `
-      <p>Oliver Frank Eckly will deliver minute-by-minute surf coverage from the Kowie, assessing swell, wave quality and whether any of this information has relevance to rowing.</p>
+      <p class="credential-line"><strong>Academic file:</strong> BSc Human Physiology. BBC equivalent: <em>Human Physiology, Wave-Induced Adrenal Response & Tactical Chilling</em>.</p><p>Oliver Frank Eckly will deliver minute-by-minute surf coverage from the Kowie, assessing swell, wave quality and whether any of this information has relevance to rowing.</p>
       <p>The network is reportedly prepared to send him increasingly far from the actual race until surf is located.</p>
       <p>Producers insist this is journalism and have declined further questions.</p><p>Oli’s official scale runs from “basically flat” to “absolute cooking.” Any ripple generated by a passing launch may be upgraded to swell if the camera angle is sufficiently deceptive.</p><p>Expect reports on chop period, wake shape, imaginary barrel potential, river-bank beach breaks and whether the Kowie can technically be called glassy for at least six consecutive seconds.</p>`
   },
@@ -82,7 +82,7 @@ const articles = {
     title: "Liam warns of severe congestion between boat racks and breakfast",
     dek: "Commuters are urged to allow an additional three to five minutes and avoid the guy carrying two riggers sideways.",
     body: `
-      <p>Liam Donald Gaunt heads BBC Traffic, monitoring critical transport corridors including the trailer, launch area, bathrooms and the path to food.</p>
+      <p class="credential-line"><strong>Academic file:</strong> Bachelor of Education. BBC equivalent: <em>Traffic Control, Queue Discipline & Teaching Eight Men Where to Stand</em>.</p><p>Liam Donald Gaunt heads BBC Traffic, monitoring critical transport corridors including the trailer, launch area, bathrooms and the path to food.</p>
       <p>Early reports indicate delays caused by boat packing, missing kit and eight people simultaneously asking where the same item is.</p>
       <p>An alternate route has been proposed. Nobody will use it.</p>`
   },
@@ -91,7 +91,7 @@ const articles = {
     title: "The Rumour Mill launches with one correspondent, unlimited allegations and a dangerous relationship with the phrase “apparently”",
     dek: "Gabriel Luke Soares Moustakis, operating under the deeply unnecessary on-air title “The Rumour Mill,” takes viewers inside the stories other desks are too responsible to touch.",
     body: `
-      <p>The Rumour Mill will cover suspicious behaviour, tour lore, wardrobe crimes, unexplained disappearances and statements beginning with “apparently...”</p>
+      <p class="credential-line"><strong>Academic file:</strong> BEng Electrical Engineering. BBC equivalent: <em>Rumour Transmission, Signal Amplification & High-Voltage Allegations</em>.</p><p>The Rumour Mill will cover suspicious behaviour, tour lore, wardrobe crimes, unexplained disappearances and statements beginning with “apparently...”</p>
       <p>Every scoop will be delivered with maximum conviction and a minimum acceptable relationship with evidence.</p>
       <p>Legal has requested that the phrase “allegedly” be added to the autocue.</p>`
   },

@@ -528,3 +528,37 @@ dialog h2 { font-family: Georgia, serif; font-size: clamp(28px, 5vw, 45px); line
   .pseudo-live-head { align-items: flex-start; }
   .pseudo-live-status { padding-top: 7px; }
 }
+
+
+/* Academic credentials */
+.study-block {
+  margin: 10px 16px 14px;
+  padding: 12px 0 2px;
+  border-top: 1px solid #e3e0da;
+  display: grid;
+  gap: 4px;
+}
+.study-label {
+  margin-top: 6px;
+  font-size: 9px;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: .13em;
+  color: #a40000;
+}
+.study-block strong {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #333;
+}
+.study-block em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #555;
+}
+.credential-line {
+  padding: 12px 14px;
+  background: #f0eee9;
+  border-left: 4px solid #a40000;
+}
