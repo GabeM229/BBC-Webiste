@@ -1,5 +1,2 @@
-Nick photo cache-bust fix:
-1. Upload/replace index.html.
-2. Upload nick-new.jpg to the repo root.
-3. You can leave or delete the old nick.jpg; the site no longer uses it.
-4. Commit changes and hard refresh the live site.
+Byron's BBC qualification updated to:
+BCom in Creative Accounting, Hostile Vibes Takeovers & Explaining Where the Crew’s Money Went
