@@ -25,7 +25,7 @@
     <a href="#crew">News Team</a>
     <a href="#segments">Segments</a>
     <a href="#markets">Markets</a>
-    <a href="#kak-chair">Kak Chair</a>
+    <a href="#feature-window">Features</a>
     <a href="#tour">Boat Race</a>
   </nav>
 
@@ -86,7 +86,7 @@
               <span class="pseudo-live-badge"><span class="live-dot"></span> PSEUDO LIVE</span>
               <span class="pseudo-live-location">KOWIE RIVER • BEAST FIELD UNIT</span>
             </div>
-            <span class="pseudo-live-status" id="videoStatus">LATEST DISPATCH</span>
+            <span class="pseudo-live-status" id="videoStatus">LATEST FIELD DISPATCH</span>
           </div>
 
           <div class="video-frame">
@@ -95,17 +95,16 @@
               Your browser does not support HTML5 video.
             </video>
             <div class="video-offair" id="videoOffAir">
-              <strong>BBC FIELD UNIT CURRENTLY OFF AIR</strong>
-              <span>Upload <b>latest-live.mp4</b> to GitHub when the next highly professional report arrives.</span>
+              <strong>BBC FIELD UNIT TEMPORARILY OFF AIR</strong>
+              <span>The field unit has gone suspiciously quiet. More chaos is expected shortly.</span>
             </div>
           </div>
 
           <div class="pseudo-live-copy">
             <div class="mini-tag">LATEST FROM TOUR</div>
-            <h3>Live-ish from the Kowie: whatever happened five minutes ago is now national news.</h3>
+            <h3>Live-ish from the Kowie: if it happened five minutes ago, BBC is already calling it breaking news.</h3>
             <p>
-              During tour, replace <strong>latest-live.mp4</strong> in the GitHub repository
-              and this player becomes the newest BBC field report.
+              Our correspondents will interrupt normal programming whenever something sufficiently unnecessary happens.
             </p>
           </div>
         </section>
@@ -278,7 +277,7 @@
           <article>
             <div class="time">14:00</div>
             <h3>Keeping Up With the Kak Chair</h3>
-            <p>Hard-hitting interviews conducted from the least dignified seat in South African sport.</p>
+            <p>Hard-hitting interviews from the least dignified seat in South African sport. Full segment in the Feature Window.</p>
           </article>
           <article>
             <div class="time">16:30</div>
@@ -300,7 +299,7 @@
           <div class="eyebrow">BBC BUSINESS</div>
           <h2>BEAST Exchange</h2>
         </div>
-        <p>Figures may be delayed by several beers and one coin flip.</p>
+        <p>Figures are unaudited, emotionally driven and subject to sudden collapse.</p>
       </div>
 
       <div class="market-board">
@@ -319,79 +318,150 @@
     </section>
 
 
-    <section class="section sports-desk" id="sports-desk">
+    <section class="section feature-window-section" id="feature-window">
       <div class="shell">
-        <div class="section-heading">
+        <div class="section-heading feature-window-heading">
           <div>
-            <div class="eyebrow">BBC SPORT — JARED'S WAR ROOM</div>
-            <h2>Every event is the biggest event in sporting history</h2>
+            <div class="eyebrow">BBC FEATURE WINDOW</div>
+            <h2>All the important journalism. Far less scrolling.</h2>
           </div>
-          <p>Statistics are carefully selected according to how dramatic they sound when shouted.</p>
+          <p>Auto-rotating coverage from the desks that should probably never have been approved.</p>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="mini-tag">ROWING</span>
-            <h3>Pre-race analysis: BEAST rated “dangerously capable” by man wearing sunglasses indoors</h3>
-            <p>Jared has identified four keys to victory: length, rhythm, aggression and saying “length” again with more authority.</p>
-          </article>
-          <article class="feature-card">
-            <span class="mini-tag">TACTICS</span>
-            <h3>New race plan leaked: start fast, continue fast, become even faster if challenged</h3>
-            <p>Opposition analysts describe the strategy as “concerningly straightforward.” BBC Sport calls it revolutionary.</p>
-          </article>
-          <article class="feature-card">
-            <span class="mini-tag">POWER RANKINGS</span>
-            <h3>BEAST jumps 11 places in rankings compiled exclusively by BEAST</h3>
-            <p>The methodology has not been released because Jared says that would “give away the algorithm.”</p>
-          </article>
-          <article class="feature-card">
-            <span class="mini-tag">POST-RACE</span>
-            <h3>Any result can be explained as tactical genius within 90 seconds</h3>
-            <p>A dedicated replay desk will identify the exact moment everything either went according to plan or was never the plan.</p>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section surf-desk" id="surf-desk">
-      <div class="shell">
-        <div class="section-heading light">
-          <div>
-            <div class="eyebrow">BBC SURF — OLI'S SWELL COMMAND</div>
-            <h2>Kowie wave watch: aggressively unnecessary, relentlessly comprehensive</h2>
+        <div class="feature-window" id="featureWindow">
+          <button class="feature-arrow feature-prev" id="featurePrev" aria-label="Previous feature">←</button>
+
+          <div class="feature-track" id="featureTrack" tabindex="0" aria-label="BBC feature stories">
+            <article class="feature-slide surf-feature" data-feature="0">
+              <div class="feature-media">
+                <img src="oli.jpg" alt="Oliver Frank Eckley">
+                <div class="feature-stamp">BBC SURF</div>
+              </div>
+              <div class="feature-story">
+                <span class="mini-tag">OLI'S SWELL COMMAND</span>
+                <h3>Kowie wave watch escalates after Oli identifies “a sneaky little runner” near the launch wake</h3>
+                <p>Oliver Frank Eckley is tracking chop height, wake interference, imaginary barrel potential and any six-second period in which the river can legally be described as “glassy.”</p>
+                <div class="feature-stats">
+                  <span><b>SWELL</b> 0.14 m</span>
+                  <span><b>BARRELS</b> 0</span>
+                  <span><b>VIBE</b> 11/10</span>
+                </div>
+                <button class="text-link article-open" data-article="oli">Enter Swell Command →</button>
+              </div>
+            </article>
+
+            <article class="feature-slide kak-feature" data-feature="1">
+              <div class="feature-media feature-graphic kak-graphic">
+                <div class="graphic-kicker">BBC INVESTIGATES</div>
+                <strong>KAK<br>CHAIR</strong>
+                <span>NO SAFE QUESTIONS</span>
+              </div>
+              <div class="feature-story">
+                <span class="mini-tag">KEEPING UP WITH THE KAK CHAIR</span>
+                <h3>The least dignified interview seat in rowing returns with absolutely no media training</h3>
+                <p>Guests face rapid-fire questions, surprise allegations and the terrifying knowledge that there is nowhere respectable to sit. BBC describes the format as “investigative.” Lawyers describe it as “why?”</p>
+                <div class="feature-quote">“We ask the questions nobody else thought were worth asking.”</div>
+              </div>
+            </article>
+
+            <article class="feature-slide sport-feature" data-feature="2">
+              <div class="feature-media">
+                <img src="jared.jpg" alt="Jared Kyle Kabo Armstrong">
+                <div class="feature-stamp">BBC SPORT</div>
+              </div>
+              <div class="feature-story">
+                <span class="mini-tag">JARED'S WAR ROOM</span>
+                <h3>BEAST jumps eleven places in power rankings compiled exclusively by BEAST</h3>
+                <p>Jared's model considers boat speed, aggression, sunglasses, body language and whichever statistic sounds most authoritative when delivered next to three unnecessary arrows.</p>
+                <div class="feature-stats">
+                  <span><b>RANK</b> #1</span>
+                  <span><b>CONFIDENCE</b> 104%</span>
+                  <span><b>OBJECTIVITY</b> N/A</span>
+                </div>
+                <button class="text-link article-open" data-article="jared">Open the War Room →</button>
+              </div>
+            </article>
+
+            <article class="feature-slide weather-feature" data-feature="3">
+              <div class="feature-media">
+                <img src="shane.jpg" alt="Shane Luke Mearns">
+                <div class="feature-stamp">BBC WEATHER</div>
+              </div>
+              <div class="feature-story">
+                <span class="mini-tag">SHANE'S KOWIE OUTLOOK</span>
+                <h3>Forecast upgraded to “that looks good” despite atmosphere refusing to provide supporting evidence</h3>
+                <p>Shane reports a 100% chance of water, scattered patches of wind and localized outbreaks of crew members staring at the river like they personally disagree with it.</p>
+                <div class="feature-stats">
+                  <span><b>WATER</b> 100%</span>
+                  <span><b>WIND</b> ALLEGED</span>
+                  <span><b>OUTLOOK</b> GOOD</span>
+                </div>
+                <button class="text-link article-open" data-article="shane">Full forecast →</button>
+              </div>
+            </article>
+
+            <article class="feature-slide gossip-feature" data-feature="4">
+              <div class="feature-media">
+                <img src="gaby.jpg" alt="Gabriel Luke Soares Moustakis">
+                <div class="feature-stamp">BBC RUMOURS</div>
+              </div>
+              <div class="feature-story">
+                <span class="mini-tag">THE RUMOUR MILL</span>
+                <h3>Gabriel confirms multiple developing allegations after hearing the phrase “apparently” from across the room</h3>
+                <p>The Rumour Mill is monitoring tour lore, wardrobe crimes, suspicious disappearances and any sentence beginning with “don't tell anyone, but...”</p>
+                <div class="feature-stats">
+                  <span><b>SOURCES</b> CLOSE</span>
+                  <span><b>EVIDENCE</b> PENDING</span>
+                  <span><b>CONFIDENCE</b> EXTREME</span>
+                </div>
+                <button class="text-link article-open" data-article="gabriel">Enter the Rumour Mill →</button>
+              </div>
+            </article>
+
+            <article class="feature-slide search-feature" data-feature="5">
+              <div class="feature-media">
+                <img src="brynn.jpg" alt="Brynn Thomas Rawlins">
+                <div class="feature-stamp">BBC INVESTIGATES</div>
+              </div>
+              <div class="feature-story">
+                <span class="mini-tag">MISSING PERSON DESK</span>
+                <h3>Search for Brynn enters critical phase after Brynn is assigned to lead the search for Brynn</h3>
+                <p>Investigators are checking bedrooms, bathrooms, boat trailers and any location offering enough plausible deniability for a correspondent who was meant to be on camera.</p>
+                <div class="feature-stats">
+                  <span><b>STATUS</b> MISSING-ISH</span>
+                  <span><b>LEAD</b> BRYNN</span>
+                  <span><b>SUSPECT</b> ALSO BRYNN</span>
+                </div>
+                <button class="text-link article-open" data-article="brynn">Latest search effort →</button>
+              </div>
+            </article>
+
+            <article class="feature-slide traffic-feature" data-feature="6">
+              <div class="feature-media">
+                <img src="liam.jpg" alt="Liam Donald Gaunt">
+                <div class="feature-stamp">BBC TRAFFIC</div>
+              </div>
+              <div class="feature-story">
+                <span class="mini-tag">LIAM'S TRAFFIC CENTRE</span>
+                <h3>Severe delays reported between breakfast and the boat racks after one rigger blocks three lanes</h3>
+                <p>Liam has proposed an alternate route. Nobody listened. Commuters are advised to allow an extra five minutes and avoid anyone carrying equipment sideways.</p>
+                <div class="feature-stats">
+                  <span><b>DELAY</b> 5 MIN</span>
+                  <span><b>CAUSE</b> RIGGER</span>
+                  <span><b>ROUTE</b> IGNORED</span>
+                </div>
+                <button class="text-link article-open" data-article="liam">Traffic update →</button>
+              </div>
+            </article>
           </div>
-          <p>Live coverage continues until a wave is found or management accepts that this is a rowing event.</p>
-        </div>
-        <div class="surf-grid">
-          <article class="surf-card big">
-            <img src="oli.jpg" alt="Oliver Frank Eckley">
-            <div>
-              <span class="mini-tag">LIVE SWELL INTELLIGENCE</span>
-              <h3>Oliver Frank Eckley receives classified footage of a possible ripple</h3>
-              <p>Oli is tracking chop height, wake interference, wind direction and any patch of water that can be described as “glassy” without immediately being challenged.</p>
-            </div>
-          </article>
-          <article class="surf-card"><span class="mini-tag">SWELL</span><h3>0.14 m</h3><p>“Very technical conditions.”</p></article>
-          <article class="surf-card"><span class="mini-tag">BARRELS</span><h3>0</h3><p>Oli remains optimistic.</p></article>
-          <article class="surf-card"><span class="mini-tag">VIBE INDEX</span><h3>11/10</h3><p>Statistically impossible. Editorially approved.</p></article>
-          <article class="surf-card"><span class="mini-tag">BEST BREAK</span><h3>Boat Wake Left</h3><p>Works only when a launch passes at exactly the wrong time.</p></article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section quote-section" id="kak-chair">
-      <div class="shell">
-        <div class="eyebrow">BBC INVESTIGATES</div>
-        <h2>Keeping Up With the Kak Chair</h2>
-        <p class="big-quote">
-          “We ask the questions nobody else is brave enough to ask,
-          mostly because nobody else thought they were worth asking.”
-        </p>
-        <p>
-          A recurring toilet-interview feature exposing the real personalities behind
-          the lycra. Guests should expect rapid-fire questions, no preparation and
-          absolutely nowhere dignified to sit.
-        </p>
+          <button class="feature-arrow feature-next" id="featureNext" aria-label="Next feature">→</button>
+        </div>
+
+        <div class="feature-controls">
+          <div class="feature-dots" id="featureDots" aria-label="Choose feature story"></div>
+          <div class="feature-hint">Swipe, scroll or use the arrows • auto-rotates</div>
+        </div>
       </div>
     </section>
 
@@ -402,22 +472,10 @@
           <h2>Universities Boat Race: Kowie River</h2>
         </div>
       </div>
-      <div class="tour-grid">
-        <article class="tour-card">
-          <span>FRIDAY</span>
-          <h3>05:00 arrival</h3>
-          <p>BBC begins broadcasting before the crew’s personalities have loaded.</p>
-        </article>
-        <article class="tour-card">
-          <span>SATURDAY</span>
-          <h3>Boat packing</h3>
-          <p>Eight engineering-level opinions applied to one trailer strap.</p>
-        </article>
-        <article class="tour-card">
-          <span>SUNDAY</span>
-          <h3>Midday-ish + photos</h3>
-          <p>Shirts, crew shots and photographic evidence that this newsroom existed.</p>
-        </article>
+      <div class="tour-coming-soon">
+        <div class="tour-coming-badge">COMING SOON</div>
+        <h3>Official Boat Race coverage is still in the newsroom.</h3>
+        <p>Schedules, race-day updates, results and whatever else survives editorial review will appear here once the BEAST field unit reaches the Kowie.</p>
       </div>
     </section>
 
@@ -437,7 +495,7 @@
         <div>
           <div class="eyebrow">MASCOT DESK</div>
           <h2>Fish vs. Piggy Bank</h2>
-          <p>The BBC mascot race remains too close to call. Democracy may eventually be replaced by a coin flip.</p>
+          <p>The BBC mascot race remains too close to call. Senior management has therefore approved the most rigorous available decision-making process: a coin flip.</p>
         </div>
       </div>
     </section>

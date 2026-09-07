@@ -562,3 +562,299 @@ dialog h2 { font-family: Georgia, serif; font-size: clamp(28px, 5vw, 45px); line
   background: #f0eee9;
   border-left: 4px solid #a40000;
 }
+
+
+/* Final polish */
+.pseudo-live-copy .mini-tag {
+  display: inline-block;
+  margin-bottom: 2px;
+}
+.pseudo-live-copy h3 {
+  max-width: 760px;
+}
+
+
+/* =========================
+   BBC FEATURE WINDOW
+   ========================= */
+.feature-window-section {
+  background: #efede7;
+}
+.feature-window-heading {
+  margin-bottom: 18px;
+}
+.feature-window {
+  position: relative;
+}
+.feature-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #9b9b9b transparent;
+  border: 1px solid #cfcac1;
+  background: #111;
+  box-shadow: 0 18px 50px rgba(0,0,0,.12);
+}
+.feature-track::-webkit-scrollbar {
+  height: 8px;
+}
+.feature-track::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 999px;
+}
+.feature-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  scroll-snap-align: start;
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr);
+  background: #fff;
+  min-height: 430px;
+}
+.feature-media {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  background: #111;
+}
+.feature-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+.feature-stamp {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  background: #a40000;
+  color: #fff;
+  padding: 8px 11px;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .12em;
+  box-shadow: 0 4px 16px rgba(0,0,0,.22);
+}
+.feature-story {
+  padding: clamp(28px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.feature-story h3 {
+  margin: 8px 0 15px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3.7vw, 46px);
+  line-height: 1.04;
+  letter-spacing: -.025em;
+}
+.feature-story > p {
+  color: #505050;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+.feature-stats {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 3px 0 22px;
+}
+.feature-stats span {
+  border: 1px solid #d7d2ca;
+  background: #f5f3ee;
+  padding: 9px 10px;
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+.feature-stats b {
+  color: #a40000;
+  margin-right: 5px;
+  font-size: 9px;
+  letter-spacing: .1em;
+}
+.feature-arrow {
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 58px;
+  border: 0;
+  background: rgba(0,0,0,.78);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease;
+}
+.feature-arrow:hover {
+  background: #a40000;
+}
+.feature-arrow:active {
+  transform: translateY(-50%) scale(.96);
+}
+.feature-prev { left: 0; }
+.feature-next { right: 0; }
+
+.feature-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-top: 14px;
+}
+.feature-dots {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.feature-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #aaa;
+  cursor: pointer;
+}
+.feature-dot.active {
+  background: #a40000;
+  transform: scale(1.25);
+}
+.feature-hint {
+  color: #777;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* Kak Chair feature graphic */
+.feature-graphic {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 30px;
+}
+.kak-graphic {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(164,0,0,.38), transparent 38%),
+    repeating-linear-gradient(135deg,#191919 0 14px,#111 14px 28px);
+  color: #fff;
+}
+.kak-graphic .graphic-kicker {
+  color: #ff6969;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  margin-bottom: 14px;
+}
+.kak-graphic strong {
+  font-size: clamp(62px, 10vw, 130px);
+  line-height: .74;
+  letter-spacing: -.07em;
+}
+.kak-graphic span {
+  margin-top: 24px;
+  color: #bbb;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .2em;
+}
+.feature-quote {
+  margin-top: 4px;
+  border-left: 4px solid #a40000;
+  padding: 12px 16px;
+  background: #f3f0ea;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+/* Tour desk — intentionally compact until tour */
+.tour-coming-soon {
+  border: 1px solid #d1cdc5;
+  background: #fff;
+  padding: clamp(32px, 6vw, 70px);
+  text-align: center;
+}
+.tour-coming-badge {
+  display: inline-block;
+  background: #a40000;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+.tour-coming-soon h3 {
+  margin: 16px auto 10px;
+  max-width: 760px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.08;
+}
+.tour-coming-soon p {
+  margin: 0 auto;
+  max-width: 680px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Tighten the page slightly now that the feature stories live in one window. */
+.feature-window-section + #tour {
+  padding-top: 58px;
+}
+
+@media (max-width: 820px) {
+  .feature-slide {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .feature-media {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+  .feature-story {
+    min-height: 330px;
+  }
+  .feature-arrow {
+    top: 30%;
+    width: 38px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 620px) {
+  .feature-window-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .feature-story {
+    padding: 24px 20px 28px;
+    min-height: 360px;
+  }
+  .feature-story h3 {
+    font-size: 29px;
+  }
+  .feature-arrow {
+    width: 34px;
+    height: 46px;
+    font-size: 20px;
+    background: rgba(0,0,0,.68);
+  }
+  .feature-controls {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .feature-hint {
+    font-size: 9px;
+  }
+}

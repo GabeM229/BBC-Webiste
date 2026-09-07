@@ -100,9 +100,9 @@ const articles = {
     title: "BEAST newsroom prepares for full-scale deployment to Universities Boat Race",
     dek: "The Kowie River is bracing for rowing, reporting and a level of production value nobody requested.",
     body: `
-      <p>The BEAST crew's tour coverage begins with an aggressively early Friday arrival, followed by boat packing on Saturday and a Sunday photo operation scheduled for approximately “midday-ish.”</p>
-      <p>Correspondents will appear in formal outfits with suit jackets, racing socks, fancy shoes, trisuits and suspicious eyewear. An 80s hair contingency plan includes mohawks, headbands and hairspray.</p>
-      <p>The production slate also includes The Beats Crew / Sus Records, mascot deliberations between a fish and piggy bank, and a coin-flip mechanism for matters deemed too important for rational decision-making.</p>`
+      <p>Official Boat Race coverage is still being assembled by a newsroom operating with extremely high confidence and extremely limited oversight.</p>
+      <p>Once the BEAST field unit reaches the Kowie, this desk will carry schedules, race-day updates, results, field reports and any development dramatic enough to justify a red BREAKING banner.</p>
+      <p>Until then, BBC management has asked viewers to remain calm and Nick has asked viewers to remain focused on Nick.</p>`
   }
 };
 
@@ -185,7 +185,7 @@ const videoStatus = document.getElementById("videoStatus");
 if (tourVideo && videoOffAir) {
   const showVideo = () => {
     videoOffAir.classList.add("hidden");
-    if (videoStatus) videoStatus.textContent = "LATEST DISPATCH";
+    if (videoStatus) videoStatus.textContent = "LATEST FIELD DISPATCH";
   };
   const showOffAir = () => {
     videoOffAir.classList.remove("hidden");
@@ -200,4 +200,126 @@ if (tourVideo && videoOffAir) {
   setTimeout(() => {
     if (tourVideo.readyState === 0) showOffAir();
   }, 1500);
+}
+
+
+// BBC Feature Window — auto-rotating, but always manually scrollable/swipeable.
+const featureTrack = document.getElementById("featureTrack");
+const featurePrev = document.getElementById("featurePrev");
+const featureNext = document.getElementById("featureNext");
+const featureDots = document.getElementById("featureDots");
+const featureWindow = document.getElementById("featureWindow");
+
+if (featureTrack && featureDots) {
+  const featureSlides = Array.from(featureTrack.querySelectorAll(".feature-slide"));
+  let featureIndex = 0;
+  let featureTimer = null;
+  let userPauseUntil = 0;
+
+  const makeDots = () => {
+    featureDots.innerHTML = "";
+    featureSlides.forEach((slide, i) => {
+      const dot = document.createElement("button");
+      dot.className = "feature-dot" + (i === 0 ? " active" : "");
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Show feature ${i + 1}`);
+      dot.addEventListener("click", () => {
+        userPauseUntil = Date.now() + 12000;
+        goToFeature(i);
+      });
+      featureDots.appendChild(dot);
+    });
+  };
+
+  const updateDots = () => {
+    Array.from(featureDots.children).forEach((dot, i) => {
+      dot.classList.toggle("active", i === featureIndex);
+    });
+  };
+
+  const goToFeature = (i) => {
+    featureIndex = (i + featureSlides.length) % featureSlides.length;
+    const slide = featureSlides[featureIndex];
+    featureTrack.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
+    updateDots();
+  };
+
+  const detectVisibleFeature = () => {
+    if (!featureSlides.length) return;
+    const left = featureTrack.scrollLeft;
+    let closest = 0;
+    let best = Infinity;
+    featureSlides.forEach((slide, i) => {
+      const diff = Math.abs(slide.offsetLeft - left);
+      if (diff < best) {
+        best = diff;
+        closest = i;
+      }
+    });
+    featureIndex = closest;
+    updateDots();
+  };
+
+  const restartTimer = () => {
+    clearInterval(featureTimer);
+    featureTimer = setInterval(() => {
+      if (Date.now() < userPauseUntil) return;
+      if (document.hidden) return;
+      goToFeature(featureIndex + 1);
+    }, 7000);
+  };
+
+  makeDots();
+  restartTimer();
+
+  if (featurePrev) {
+    featurePrev.addEventListener("click", () => {
+      userPauseUntil = Date.now() + 12000;
+      goToFeature(featureIndex - 1);
+    });
+  }
+
+  if (featureNext) {
+    featureNext.addEventListener("click", () => {
+      userPauseUntil = Date.now() + 12000;
+      goToFeature(featureIndex + 1);
+    });
+  }
+
+  let scrollDebounce;
+  featureTrack.addEventListener("scroll", () => {
+    userPauseUntil = Date.now() + 8000;
+    clearTimeout(scrollDebounce);
+    scrollDebounce = setTimeout(detectVisibleFeature, 90);
+  }, { passive: true });
+
+  featureTrack.addEventListener("pointerdown", () => {
+    userPauseUntil = Date.now() + 12000;
+  });
+
+  featureTrack.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      userPauseUntil = Date.now() + 12000;
+      goToFeature(featureIndex + 1);
+    }
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      userPauseUntil = Date.now() + 12000;
+      goToFeature(featureIndex - 1);
+    }
+  });
+
+  if (featureWindow) {
+    featureWindow.addEventListener("mouseenter", () => {
+      userPauseUntil = Date.now() + 10000;
+    });
+    featureWindow.addEventListener("focusin", () => {
+      userPauseUntil = Date.now() + 10000;
+    });
+  }
+
+  window.addEventListener("resize", () => {
+    featureTrack.scrollTo({ left: featureSlides[featureIndex].offsetLeft, behavior: "auto" });
+  });
 }

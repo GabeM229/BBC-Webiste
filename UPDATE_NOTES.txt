@@ -1,2 +1,20 @@
-Byron's BBC qualification updated to:
-BCom in Creative Accounting, Hostile Vibes Takeovers & Explaining Where the Crew’s Money Went
+BEAST BBC — FEATURE WINDOW UPDATE
+
+Replace these files in the GitHub repository:
+- index.html
+- styles.css
+- script.js
+
+You do NOT need to re-upload the crew photos. Leave them where they are.
+
+What changed:
+- Removed the separate long Sports, Surf and Kak Chair feature sections.
+- Added one condensed BBC Feature Window in their place.
+- The window auto-rotates every 7 seconds.
+- Visitors can also swipe/scroll it manually, use left/right arrows, use the dots, or use keyboard arrow keys.
+- Feature stories currently include Oli's Swell Command, Kak Chair, Jared Sport, Shane Weather, The Rumour Mill, Brynn's Search Desk and Liam Traffic.
+- Kak Chair now lives inside this rotating feature window.
+- Tour Desk no longer shows Friday/Saturday/Sunday entries. It now says COMING SOON.
+- Tour popup copy was also cleaned so it no longer contains the old schedule.
+
+The existing pseudo-live video system is unchanged.
