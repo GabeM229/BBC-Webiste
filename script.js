@@ -405,29 +405,6 @@ if (nextRaceText) {
 }
 
 // =====================================================
-// CONTROL ROOM: SCANDAL INDEX
-// =====================================================
-const scandalFill = document.getElementById("scandalFill");
-const scandalLabel = document.getElementById("scandalLabel");
-const recalculateScandal = document.getElementById("recalculateScandal");
-const scandalStates = [
-  [18, "Suspiciously quiet"],
-  [34, "Routine allegations"],
-  [51, "Group chat active"],
-  [68, "Rumour Mill deployed"],
-  [82, "Legal has entered the chat"],
-  [96, "Emergency press conference"]
-];
-function setScandal() {
-  if (!scandalFill || !scandalLabel) return;
-  const state = scandalStates[Math.floor(Math.random() * scandalStates.length)];
-  scandalFill.style.width = `${state[0]}%`;
-  scandalLabel.textContent = `${state[1]} — ${state[0]}/100`;
-}
-if (recalculateScandal) recalculateScandal.addEventListener("click", setScandal);
-setScandal();
-
-// =====================================================
 // QUOTE OF THE DAY
 // =====================================================
 const quotes = [
@@ -550,52 +527,84 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeEmergency();
 });
 
-// =====================================================
-// PRESS CONFERENCE MODE
-// =====================================================
-const pressPerson = document.getElementById("pressPerson");
-const pressQuestion = document.getElementById("pressQuestion");
-const pressAnswer = document.getElementById("pressAnswer");
-const newPressQuestion = document.getElementById("newPressQuestion");
 
-const pressQuestions = [
-  "Q: What happened out there?",
-  "Q: Was that always the race plan?",
-  "Q: Who takes responsibility for this?",
-  "Q: Can you explain the decision-making?",
-  "Q: What do you say to the critics?",
-  "Q: At what point did you know?",
-  "Q: Is the team still united?"
+
+// =====================================================
+// BEAST NONSENSE FORECAST
+// =====================================================
+const forecastChance = document.getElementById("forecastChance");
+const forecastHeadline = document.getElementById("forecastHeadline");
+const forecastDetail = document.getElementById("forecastDetail");
+const forecastChart = document.getElementById("forecastChart");
+const refreshForecast = document.getElementById("refreshForecast");
+const forecastChips = Array.from(document.querySelectorAll(".forecast-chip"));
+
+let forecastBoost = 0;
+
+const forecastModes = [
+  {
+    base: 90,
+    headline: "Heavy nonsense with scattered allegations",
+    detail: "Expect isolated bursts of boat chat, sudden media activity and a strong chance of someone saying “this is massive.”"
+  },
+  {
+    base: 84,
+    headline: "Nonsense building through the afternoon",
+    detail: "Conditions remain unstable. A camera entering the area could trigger rapid development."
+  },
+  {
+    base: 93,
+    headline: "Severe BEAST activity warning",
+    detail: "Multiple correspondents are active at once. Viewers should expect overlapping reports and no single source of truth."
+  },
+  {
+    base: 76,
+    headline: "Patchy nonsense, strengthening later",
+    detail: "A brief period of responsibility is possible before conditions deteriorate again around dinner."
+  }
 ];
-const pressAnswers = {
-  nick: ["“The important thing is that the cameras caught it.”","“I reject the premise of any question not about my performance.”","“This newsroom remains fully behind me. I checked.”"],
-  shane: ["“Conditions were conditions. Overall, that looked good.”","“There was atmosphere, yes.”","“The ecology of the moment was complicated.”"],
-  byron: ["“On an adjusted basis, nothing happened.”","“We have moved that result off-balance-sheet.”","“Cash flow is temporary. Vibes are an asset.”"],
-  jared: ["“If you look at the arrows, it becomes obvious.”","“Tactically, enormous.”","“The result actually proves my pre-race analysis, retroactively.”"],
-  brynn: ["“I was never missing from my own perspective.”","“The investigation remains ongoing because I have reopened it.”","“I cannot comment on my location.”"],
-  oli: ["“You have to respect the swell.”","“That wake had shape.”","“Give me six seconds of glass and I’ll give you a forecast.”"],
-  liam: ["“I gave them an alternate route.”","“This was preventable if anyone had listened.”","“Congestion does not respect reputation.”"],
-  gabriel: ["“I’m hearing things.”","“Sources close to me say yes.”","“I said allegedly. Legally that should be enough.”"]
-};
-function nextPresser() {
-  if (!pressPerson || !pressQuestion || !pressAnswer) return;
-  pressQuestion.textContent = pressQuestions[Math.floor(Math.random() * pressQuestions.length)];
-  const arr = pressAnswers[pressPerson.value];
-  pressAnswer.textContent = "A: " + arr[Math.floor(Math.random() * arr.length)];
-}
-if (newPressQuestion) newPressQuestion.addEventListener("click", nextPresser);
-if (pressPerson) pressPerson.addEventListener("change", nextPresser);
 
-// =====================================================
-// BEAST AWARDS
-// =====================================================
-const crewNames = ["Nick","Shane","Byron","Jared","Brynn","Oli","Liam","Gabriel"];
-const awardCategory = document.getElementById("awardCategory");
-const awardWinner = document.getElementById("awardWinner");
-const pickAwardWinner = document.getElementById("pickAwardWinner");
-if (pickAwardWinner && awardWinner && awardCategory) {
-  pickAwardWinner.addEventListener("click", () => {
-    const winner = crewNames[Math.floor(Math.random() * crewNames.length)];
-    awardWinner.innerHTML = `<strong>${winner}</strong> wins <em>${awardCategory.value}</em> after a closed-door process with no published criteria.`;
+function renderForecast(modeIndex = 0) {
+  if (!forecastChart || !forecastChance || !forecastHeadline || !forecastDetail) return;
+  const mode = forecastModes[modeIndex % forecastModes.length];
+  const chance = Math.min(100, mode.base + forecastBoost);
+
+  forecastChance.textContent = chance;
+  forecastHeadline.textContent = mode.headline;
+  forecastDetail.textContent = mode.detail;
+
+  const shape = [0.72, 0.82, 0.91, 0.87, 0.95, 0.89, 0.97, 0.92, 0.86, 0.94, 0.98, 0.90];
+  forecastChart.innerHTML = "";
+
+  shape.forEach((factor, i) => {
+    const value = Math.max(20, Math.min(100, Math.round(chance * factor + ((i % 3) - 1) * 4)));
+    const col = document.createElement("button");
+    col.className = "forecast-column";
+    col.type = "button";
+    col.setAttribute("aria-label", `${value}% nonsense probability`);
+    col.innerHTML = `<span class="forecast-value">${value}%</span><i style="height:${value}%"></i>`;
+    col.addEventListener("click", () => {
+      Array.from(forecastChart.children).forEach(c => c.classList.remove("selected"));
+      col.classList.add("selected");
+    });
+    forecastChart.appendChild(col);
   });
 }
+
+let forecastModeIndex = 0;
+if (refreshForecast) {
+  refreshForecast.addEventListener("click", () => {
+    forecastModeIndex = (forecastModeIndex + 1) % forecastModes.length;
+    renderForecast(forecastModeIndex);
+  });
+}
+
+forecastChips.forEach(chip => {
+  chip.addEventListener("click", () => {
+    forecastBoost = Number(chip.dataset.boost || 0);
+    forecastChips.forEach(c => c.classList.toggle("active", c === chip));
+    renderForecast(forecastModeIndex);
+  });
+});
+
+renderForecast();

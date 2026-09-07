@@ -26,6 +26,7 @@
     
     <a href="#markets">Markets</a>
     <a href="#feature-window">Features</a>
+    <a href="#beast-forecast">BEAST Forecast</a>
     <a href="#tour">Boat Race</a>
   </nav>
 
@@ -435,6 +436,48 @@
       </div>
     </section>
 
+    <section class="section beast-forecast-section" id="beast-forecast">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">BBC BEAST FORECAST</div>
+            <h2>Today: 90% chance of crew nonsense.</h2>
+          </div>
+          <p>A highly scientific outlook generated using vibes, proximity to race day and the current state of the group chat.</p>
+        </div>
+
+        <div class="beast-forecast-card">
+          <div class="beast-forecast-summary">
+            <div class="forecast-big-number"><span id="forecastChance">90</span><small>%</small></div>
+            <div>
+              <span class="mini-tag">CURRENT CONDITIONS</span>
+              <h3 id="forecastHeadline">Heavy nonsense with scattered allegations</h3>
+              <p id="forecastDetail">Expect isolated bursts of boat chat, sudden media activity and a strong chance of someone saying “this is massive.”</p>
+            </div>
+          </div>
+
+          <div class="forecast-chart-wrap">
+            <div class="forecast-chart-head">
+              <span>Hourly nonsense probability</span>
+              <button class="text-link" id="refreshForecast">Run another model →</button>
+            </div>
+            <div class="forecast-chart" id="forecastChart" aria-label="Hourly BEAST nonsense probability chart"></div>
+            <div class="forecast-axis">
+              <span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span>
+            </div>
+          </div>
+
+          <div class="forecast-factors">
+            <button class="forecast-chip active" data-boost="0">Baseline</button>
+            <button class="forecast-chip" data-boost="5">Race day</button>
+            <button class="forecast-chip" data-boost="9">Formalwear</button>
+            <button class="forecast-chip" data-boost="12">Camera visible</button>
+            <button class="forecast-chip" data-boost="15">Nick on air</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section shell" id="tour">
       <div class="section-heading">
         <div>
@@ -512,23 +555,15 @@
             <div class="eyebrow">BBC CONTROL ROOM</div>
             <h2>Interactive newsroom nonsense</h2>
           </div>
-          <p>Four tools built to solve problems that did not exist until this website was created.</p>
+          <p>Three tools built to solve problems that did not exist until this website was created.</p>
         </div>
 
         <div class="control-deck">
-          <article class="control-card scandal-card">
-            <span class="mini-tag">CREW SCANDAL INDEX</span>
-            <h3 id="scandalLabel">Routine allegations</h3>
-            <div class="scandal-meter"><div class="scandal-fill" id="scandalFill"></div></div>
-            <div class="scandal-scale"><span>Quiet news day</span><span>Emergency presser</span></div>
-            <button class="btn primary mini-action" id="recalculateScandal">Recalculate risk</button>
-          </article>
-
-          <article class="control-card quote-card">
+<article class="control-card quote-card">
             <span class="mini-tag">QUOTE OF THE DAY</span>
             <blockquote id="quoteText">“No comment, but put that in the article.”</blockquote>
             <span class="quote-source" id="quoteSource">— BBC source familiar with the matter</span>
-            <button class="btn ghost mini-action" id="nextQuote">Request another quote</button>
+            <button class="btn primary mini-action" id="nextQuote">Request another quote</button>
           </article>
 
           <article class="control-card lower-third-card">
@@ -561,88 +596,41 @@
       </div>
     </section>
 
-    <section class="section shell studio-section" id="studio">
+    <section class="section shell camera-roll-section" id="camera-roll">
       <div class="section-heading compact-heading">
         <div>
-          <div class="eyebrow">BBC STUDIO DECK</div>
-          <h2>Swipe through the evidence locker</h2>
+          <div class="eyebrow">BBC CAMERA ROLL</div>
+          <h2>Tour evidence, newest first.</h2>
         </div>
-        <p>Investigations, press conferences, awards, gallery evidence and other editorial hazards.</p>
+        <p>The latest photo always appears at the front. Scroll backwards through the archive as the week gets progressively less defensible.</p>
       </div>
 
-      <div class="studio-track">
-        <article class="studio-card evidence-board">
-          <div class="studio-number">01</div>
-          <span class="mini-tag">EVIDENCE BOARD</span>
-          <h3>Operation: Who moved the thing?</h3>
-          <div class="evidence-grid">
-            <div class="evidence-note">MISSING<br><strong>One strap</strong><small>Last seen “right here”</small></div>
-            <div class="evidence-note">PERSON OF INTEREST<br><strong>Brynn</strong><small>Also investigator</small></div>
-            <div class="evidence-note">MOTIVE<br><strong>Unclear</strong><small>Vibes suspicious</small></div>
-            <div class="evidence-note">LEAD<br><strong>Group chat</strong><small>Mostly useless</small></div>
-          </div>
-          <p class="studio-copy">BBC investigators have established several connections and almost none of them are useful.</p>
-        </article>
-
-        <article class="studio-card press-card">
-          <div class="studio-number">02</div>
-          <span class="mini-tag">PRESS CONFERENCE MODE</span>
-          <h3>Ask the hard questions. Receive the wrong answers.</h3>
-          <select id="pressPerson" class="bbc-select">
-            <option value="nick">Nick</option><option value="shane">Shane</option>
-            <option value="byron">Byron</option><option value="jared">Jared</option>
-            <option value="brynn">Brynn</option><option value="oli">Oli</option>
-            <option value="liam">Liam</option><option value="gabriel">Gabriel</option>
-          </select>
-          <div class="press-box">
-            <strong id="pressQuestion">Q: What happened out there?</strong>
-            <p id="pressAnswer">A: “The important thing is that the cameras caught it.”</p>
-          </div>
-          <button class="btn primary mini-action" id="newPressQuestion">Next hostile question</button>
-        </article>
-
-        <article class="studio-card awards-card">
-          <div class="studio-number">03</div>
-          <span class="mini-tag">BEAST AWARDS</span>
-          <h3>The committee has met. Standards were not discussed.</h3>
-          <select id="awardCategory" class="bbc-select">
-            <option>Most Likely to Miss Call Time</option>
-            <option>Strongest Allegation, Weakest Evidence</option>
-            <option>Best Unnecessary Media Presence</option>
-            <option>Most Valuable Excuse</option>
-            <option>Best Performance Near a Camera</option>
-          </select>
-          <div class="award-winner" id="awardWinner">Winner pending an opaque selection process.</div>
-          <button class="btn primary mini-action" id="pickAwardWinner">Convene the committee</button>
-        </article>
-
-        <article class="studio-card gallery-card">
-          <div class="studio-number">04</div>
-          <span class="mini-tag">TOUR GALLERY</span>
-          <h3>Photographic evidence</h3>
-          <div class="mini-gallery">
-            <figure><img src="nick-new.jpg?v=2" alt="Nick"><figcaption>Anchor seen near a camera.</figcaption></figure>
-            <figure><img src="gaby.jpg" alt="Gabriel"><figcaption>Rumour desk enters glamour phase.</figcaption></figure>
-            <figure><img src="shane.jpg" alt="Shane"><figcaption>Weather model under peer review.</figcaption></figure>
-            <figure><img src="byron.jpg" alt="Byron"><figcaption>Markets react badly.</figcaption></figure>
-          </div>
-          <p class="studio-copy">Tour photos can be swapped into this strip later without changing the layout.</p>
-        </article>
-
-        <article class="studio-card culture-card">
-          <div class="studio-number">05</div>
-          <span class="mini-tag">CULTURE DESK</span>
-          <h3>Formal journalism, informal decision-making</h3>
-          <ul class="culture-list">
-            <li><strong>Dress:</strong> suit jackets, racing socks, fancy shoes, trisuits, questionable glasses.</li>
-            <li><strong>Hair:</strong> mohawks, 80s headbands and enough hairspray to affect Shane’s forecast.</li>
-            <li><strong>Music:</strong> The Beats Crew / Sus Records.</li>
-            <li><strong>Mascot:</strong> fish vs. piggy bank. Democracy remains optional.</li>
-          </ul>
-        </article>
+      <div class="camera-roll-frame">
+        <div class="camera-roll-meta">
+          <span><strong id="cameraRollCount">4</strong> items in the current archive</span>
+          <span>Swipe or horizontal-scroll →</span>
+        </div>
+        <div class="camera-roll-track" id="cameraRollTrack">
+          <figure class="camera-roll-item">
+            <img src="nick-new.jpg?v=2" alt="Nick Glen Judelsohn">
+            <figcaption><span>Latest</span> Anchor sighting. Camera immediately became the most important object in the room.</figcaption>
+          </figure>
+          <figure class="camera-roll-item">
+            <img src="gaby.jpg" alt="Gabriel Luke Soares Moustakis">
+            <figcaption><span>Archive</span> Rumour desk enters glamour phase.</figcaption>
+          </figure>
+          <figure class="camera-roll-item">
+            <img src="shane.jpg" alt="Shane Luke Mearns">
+            <figcaption><span>Archive</span> Weather model remains under peer review.</figcaption>
+          </figure>
+          <figure class="camera-roll-item">
+            <img src="byron.jpg" alt="Byron Alexander Sikiotis">
+            <figcaption><span>Archive</span> Markets react badly to developments.</figcaption>
+          </figure>
+        </div>
       </div>
-      <div class="feature-hint studio-hint">Swipe or horizontal-scroll the Studio Deck →</div>
     </section>
+
   </main>
 
   <button class="emergency-fab" id="emergencyFab" aria-label="Trigger emergency broadcast">!</button>
