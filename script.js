@@ -505,7 +505,7 @@ const emergencyHeadlines = [
   "TRAFFIC EMERGENCY: Two riggers have entered the same corridor.",
   "RUMOUR ALERT: Gabriel has used the word “confirmed” without documentation."
 ];
-// A short, locally generated broadcast sting; no audio download required.
+// A locally generated civil-defence-style siren; no audio download required.
 let emergencyAudioContext;
 let emergencySoundNodes = [];
 let emergencySoundGeneration = 0;
@@ -528,17 +528,23 @@ async function playEmergencySound() {
     if (emergencyAudioContext.state === "suspended") await emergencyAudioContext.resume();
     if (generation !== emergencySoundGeneration) return;
     const start = emergencyAudioContext.currentTime;
-    [660, 880, 660, 880, 1040].forEach((frequency, index) => {
+    // Two abrasive, slightly detuned voices rise and fall for eight seconds.
+    // Their combined gain stays below full scale, avoiding digital clipping.
+    [{ type: "sawtooth", offset: 0, level: 0.30 },
+     { type: "square", offset: 11, level: 0.18 }].forEach(voice => {
       const oscillator = emergencyAudioContext.createOscillator();
       const gain = emergencyAudioContext.createGain();
-      const at = start + index * 0.24;
-      const duration = index === 4 ? 0.45 : 0.2;
-      oscillator.type = "triangle";
-      oscillator.frequency.setValueAtTime(frequency, at);
-      gain.gain.setValueAtTime(0, at);
-      gain.gain.linearRampToValueAtTime(0.14, at + 0.015);
-      gain.gain.setValueAtTime(0.14, at + duration - 0.06);
-      gain.gain.linearRampToValueAtTime(0, at + duration);
+      const duration = 8;
+      oscillator.type = voice.type;
+      oscillator.frequency.setValueAtTime(380 + voice.offset, start);
+      for (let cycle = 0; cycle < 4; cycle += 1) {
+        oscillator.frequency.linearRampToValueAtTime(1080 + voice.offset, start + cycle * 2 + 1.1);
+        oscillator.frequency.linearRampToValueAtTime(380 + voice.offset, start + cycle * 2 + 2);
+      }
+      gain.gain.setValueAtTime(0, start);
+      gain.gain.linearRampToValueAtTime(voice.level, start + 0.06);
+      gain.gain.setValueAtTime(voice.level, start + duration - 0.15);
+      gain.gain.linearRampToValueAtTime(0, start + duration);
       oscillator.connect(gain);
       gain.connect(emergencyAudioContext.destination);
       const node = { oscillator, gain };
@@ -548,8 +554,8 @@ async function playEmergencySound() {
         gain.disconnect();
         emergencySoundNodes = emergencySoundNodes.filter(item => item !== node);
       };
-      oscillator.start(at);
-      oscillator.stop(at + duration);
+      oscillator.start(start);
+      oscillator.stop(start + duration);
     });
   } catch (_) { /* The visual broadcast still works if audio is unavailable. */ }
 }
