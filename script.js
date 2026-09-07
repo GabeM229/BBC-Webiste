@@ -18,7 +18,11 @@ const tickerItems = [
   "TRAFFIC: Liam announces alternate route around rigger congestion; nobody listens.",
   "GOSSIP: Gabriel says the paddock is talking. The paddock denies this.",
   "BREAKING: BBC budget redirected to Nick’s entrance music and unnecessary desk lighting.",
-  "SPORT: Replay confirms every BEAST stroke looked faster in Jared’s commentary."
+  "SPORT: Replay confirms every BEAST stroke looked faster in Jared’s commentary.",
+  "RACE WEEK: Men’s B Heads Race scheduled for Thursday 09:00; BBC begins panicking early.",
+  "RACE WEEK: Friday finals spreadsheet described by Byron as 'a hostile financial instrument'.",
+  "RACE WEEK: Saturday 11:20 marked BEAST WATCH pending qualification and several dramatic graphics.",
+  "SCHEDULE: Formal Dinner confirmed. Nick immediately requests keynote slot."
 ]
 
 const articles = {
@@ -100,9 +104,9 @@ const articles = {
     title: "BEAST newsroom prepares for full-scale deployment to Universities Boat Race",
     dek: "The Kowie River is bracing for rowing, reporting and a level of production value nobody requested.",
     body: `
-      <p>Official Boat Race coverage is still being assembled by a newsroom operating with extremely high confidence and extremely limited oversight.</p>
-      <p>Once the BEAST field unit reaches the Kowie, this desk will carry schedules, race-day updates, results, field reports and any development dramatic enough to justify a red BREAKING banner.</p>
-      <p>Until then, BBC management has asked viewers to remain calm and Nick has asked viewers to remain focused on Nick.</p>`
+      <p>The official 2026 RMB Universities’ Boat Race programme now runs from Wednesday 09 September through Saturday 12 September.</p>
+      <p>BEAST attention is fixed on the Men’s B Heads Race at 09:00 on Thursday, followed by the relevant Men’s B finals on Friday and the 1 + 2 final at 11:20 on Saturday if the racing gods and the draw permit it.</p>
+      <p>The Race Week HQ on the homepage contains the full programme. BBC management has asked viewers to remain calm and Nick has asked viewers to remain focused on Nick.</p>`
   }
 };
 
@@ -321,5 +325,277 @@ if (featureTrack && featureDots) {
 
   window.addEventListener("resize", () => {
     featureTrack.scrollTo({ left: featureSlides[featureIndex].offsetLeft, behavior: "auto" });
+  });
+}
+
+
+// =====================================================
+// BBC LIVE WIRE
+// =====================================================
+const wireFeed = document.getElementById("wireFeed");
+const wireRefresh = document.getElementById("wireRefresh");
+
+const wireUpdates = [
+  ["08:03", "WEATHER", "Shane has looked at the sky. Preliminary finding: that looks good."],
+  ["08:17", "SPORT", "Jared has drawn three arrows on a screenshot and declared the race tactically solved."],
+  ["08:41", "MARKETS", "Byron downgrades Sleep Futures to 'deeply concerning'."],
+  ["09:02", "DEVELOPING", "Brynn reported missing from Missing Person Desk. Search led by Brynn."],
+  ["09:26", "SURF", "Oli detects wake from launch and requests slow-motion replay."],
+  ["09:54", "TRAFFIC", "Liam confirms congestion outside breakfast. Alternate route ignored."],
+  ["10:11", "RUMOURS", "Gabriel has heard something from someone who heard something."],
+  ["10:37", "ANCHOR", "Nick asks newsroom to refer to his entrance as 'the opening ceremony'."],
+  ["11:04", "BREAKING", "Unidentified strap located. Crew refuses to say whether it was ever missing."],
+  ["11:42", "CULTURE", "Hairspray reserves upgraded from adequate to strategic."]
+];
+
+let wireCounter = 0;
+function renderWire() {
+  if (!wireFeed) return;
+  wireFeed.innerHTML = "";
+  const start = wireCounter % wireUpdates.length;
+  for (let i = 0; i < 7; i++) {
+    const item = wireUpdates[(start + i) % wireUpdates.length];
+    const row = document.createElement("div");
+    row.className = "wire-item";
+    row.innerHTML = `<time>${item[0]}</time><span class="wire-tag">${item[1]}</span><p>${item[2]}</p>`;
+    wireFeed.appendChild(row);
+  }
+}
+if (wireFeed) renderWire();
+if (wireRefresh) {
+  wireRefresh.addEventListener("click", () => {
+    wireCounter = (wireCounter + 1) % wireUpdates.length;
+    renderWire();
+    wireFeed.scrollTo({top: 0, behavior: "smooth"});
+  });
+}
+
+// =====================================================
+// RACE WEEK TABS + NEXT BEAST EVENT
+// =====================================================
+const scheduleTabs = Array.from(document.querySelectorAll(".schedule-tab"));
+const scheduleDays = Array.from(document.querySelectorAll(".schedule-day"));
+
+function showScheduleDay(day) {
+  scheduleTabs.forEach(t => t.classList.toggle("active", t.dataset.day === day));
+  scheduleDays.forEach(p => p.classList.toggle("active", p.dataset.dayPanel === day));
+}
+scheduleTabs.forEach(tab => tab.addEventListener("click", () => showScheduleDay(tab.dataset.day)));
+
+const beastEvents = [
+  { at: new Date("2026-09-10T09:00:00+02:00"), label: "Thu 10 Sep • 09:00 — Men’s B Heads Race" },
+  { at: new Date("2026-09-11T11:55:00+02:00"), label: "Fri 11 Sep • 11:55 — Men’s B Final 7 + 8" },
+  { at: new Date("2026-09-11T12:30:00+02:00"), label: "Fri 11 Sep • 12:30 — Men’s B Final 5 + 6" },
+  { at: new Date("2026-09-11T13:40:00+02:00"), label: "Fri 11 Sep • 13:40 — Men’s B Final 3 + 4" },
+  { at: new Date("2026-09-12T11:20:00+02:00"), label: "Sat 12 Sep • 11:20 — Men’s B Final 1 + 2" }
+];
+const nextRaceText = document.getElementById("nextRaceText");
+if (nextRaceText) {
+  const now = new Date();
+  const upcoming = beastEvents.find(e => e.at > now);
+  nextRaceText.textContent = upcoming
+    ? `Next possible Men’s B event: ${upcoming.label}`
+    : "Race week complete. BBC is now rewriting every prediction as if it was correct.";
+
+  // Open the most relevant programme tab on race week.
+  const dateKey = now.toISOString().slice(0,10);
+  if (dateKey === "2026-09-10") showScheduleDay("thu");
+  else if (dateKey === "2026-09-11") showScheduleDay("fri");
+  else if (dateKey >= "2026-09-12") showScheduleDay("sat");
+}
+
+// =====================================================
+// CONTROL ROOM: SCANDAL INDEX
+// =====================================================
+const scandalFill = document.getElementById("scandalFill");
+const scandalLabel = document.getElementById("scandalLabel");
+const recalculateScandal = document.getElementById("recalculateScandal");
+const scandalStates = [
+  [18, "Suspiciously quiet"],
+  [34, "Routine allegations"],
+  [51, "Group chat active"],
+  [68, "Rumour Mill deployed"],
+  [82, "Legal has entered the chat"],
+  [96, "Emergency press conference"]
+];
+function setScandal() {
+  if (!scandalFill || !scandalLabel) return;
+  const state = scandalStates[Math.floor(Math.random() * scandalStates.length)];
+  scandalFill.style.width = `${state[0]}%`;
+  scandalLabel.textContent = `${state[1]} — ${state[0]}/100`;
+}
+if (recalculateScandal) recalculateScandal.addEventListener("click", setScandal);
+setScandal();
+
+// =====================================================
+// QUOTE OF THE DAY
+// =====================================================
+const quotes = [
+  ["“No comment, but put that in the article.”", "— BBC source familiar with the matter"],
+  ["“That looks good.”", "— Shane, completing the forecast"],
+  ["“Technically, a boat wake is still a wave.”", "— Oli, defending the entire Surf Desk"],
+  ["“The numbers are excellent if you ignore the numbers.”", "— Byron, BBC Business"],
+  ["“I wasn’t missing. You were looking in the wrong place.”", "— Brynn"],
+  ["“Back to me.”", "— Nick, after every correspondent report"],
+  ["“Apparently…”", "— Gabriel, moments before a legal problem"],
+  ["“This is massive.”", "— Jared, describing something moderately important"],
+  ["“Use the other route.”", "— Liam, to nobody in particular"]
+];
+let quoteIndex = Math.abs(new Date().getDate()) % quotes.length;
+const quoteText = document.getElementById("quoteText");
+const quoteSource = document.getElementById("quoteSource");
+const nextQuote = document.getElementById("nextQuote");
+function showQuote() {
+  if (!quoteText || !quoteSource) return;
+  quoteText.textContent = quotes[quoteIndex][0];
+  quoteSource.textContent = quotes[quoteIndex][1];
+}
+if (nextQuote) nextQuote.addEventListener("click", () => {
+  quoteIndex = (quoteIndex + 1) % quotes.length;
+  showQuote();
+});
+showQuote();
+
+// =====================================================
+// LOWER-THIRD GENERATOR
+// =====================================================
+const lowerThirdPerson = document.getElementById("lowerThirdPerson");
+const lowerThirdName = document.getElementById("lowerThirdName");
+const lowerThirdTitle = document.getElementById("lowerThirdTitle");
+const generateLowerThird = document.getElementById("generateLowerThird");
+
+const lowerThirdData = {
+  nick: {
+    name: "NICK GLEN JUDELSOHN",
+    titles: ["GLOBAL CHIEF ANCHOR & NATIONAL TREASURE","EXECUTIVE FACE OF BREAKING NEWS","MANAGING DIRECTOR OF HIMSELF","SENIOR VICE PRESIDENT OF CAMERA ONE"]
+  },
+  shane: {
+    name: "SHANE LUKE MEARNS",
+    titles: ["CHIEF OFFICER OF THAT LOOKS GOOD","SENIOR ATMOSPHERIC POINTING ANALYST","DIRECTOR OF WATER-ADJACENT WEATHER","ECOLOGICAL VIBES CORRESPONDENT"]
+  },
+  byron: {
+    name: "BYRON ALEXANDER SIKIOTIS",
+    titles: ["CHIEF VIBES ACCOUNTANT","DIRECTOR OF CREATIVE LEDGER INTERPRETATION","SENIOR ANALYST, MISSING FUNDS","HEAD OF DIGNITY DEPRECIATION"]
+  },
+  jared: {
+    name: "JARED KYLE KABO ARMSTRONG",
+    titles: ["CHIEF TACTICAL ARROW OFFICER","SENIOR HOT TAKE ADMINISTRATOR","DIRECTOR OF MASSIVE MOMENTS","GLOBAL POWER RANKINGS AUTHORITY"]
+  },
+  brynn: {
+    name: "BRYNN THOMAS RAWLINS",
+    titles: ["MISSING PERSON & PERSON MISSING","LEAD INVESTIGATOR, OWN WHEREABOUTS","DIRECTOR OF ADVANCED DISAPPEARANCE","SENIOR SELF-RECOVERY ENGINEER"]
+  },
+  oli: {
+    name: "OLIVER FRANK ECKLEY",
+    titles: ["CHIEF SWELL EXAGGERATION OFFICER","DIRECTOR OF IMAGINARY BARRELS","SENIOR BOAT-WAKE ANALYST","HEAD OF KOWIE PIPELINE OPERATIONS"]
+  },
+  liam: {
+    name: "LIAM DONALD GAUNT",
+    titles: ["CHIEF CORRIDOR TRAFFIC EDUCATOR","DIRECTOR OF ALTERNATE ROUTES NOBODY USES","SENIOR RIGGER CONGESTION ANALYST","HEAD OF QUEUE DISCIPLINE"]
+  },
+  gabriel: {
+    name: "GABRIEL LUKE SOARES MOUSTAKIS",
+    titles: ["DIRECTOR OF APPARENTLY","CHIEF HIGH-VOLTAGE ALLEGATIONS OFFICER","SENIOR RUMOUR TRANSMISSION ENGINEER","HEAD OF SOURCES CLOSE TO THE MATTER"]
+  }
+};
+function makeLowerThird() {
+  if (!lowerThirdPerson || !lowerThirdName || !lowerThirdTitle) return;
+  const data = lowerThirdData[lowerThirdPerson.value];
+  lowerThirdName.textContent = data.name;
+  lowerThirdTitle.textContent = data.titles[Math.floor(Math.random() * data.titles.length)];
+}
+if (generateLowerThird) generateLowerThird.addEventListener("click", makeLowerThird);
+if (lowerThirdPerson) lowerThirdPerson.addEventListener("change", makeLowerThird);
+
+// =====================================================
+// EMERGENCY BROADCAST
+// =====================================================
+const emergencyOverlay = document.getElementById("emergencyOverlay");
+const emergencyHeadline = document.getElementById("emergencyHeadline");
+const emergencyFab = document.getElementById("emergencyFab");
+const emergencyInline = document.getElementById("emergencyInline");
+const emergencyClose = document.getElementById("emergencyClose");
+
+const emergencyHeadlines = [
+  "Crew member has moved a chair without notifying the newsroom.",
+  "BREAKING: Someone has asked where the 10mm spanner is.",
+  "NATIONAL ALERT: Nick is not currently on camera.",
+  "SURF EMERGENCY: Oli has detected a ripple with suspicious shape.",
+  "MARKET HALT: Byron cannot explain one transaction.",
+  "WEATHER WARNING: Shane has upgraded conditions to “that looks very good.”",
+  "SPORTING CRISIS: Jared has run out of arrows for the analysis screen.",
+  "DEVELOPING: Brynn has disappeared during report on his previous disappearance.",
+  "TRAFFIC EMERGENCY: Two riggers have entered the same corridor.",
+  "RUMOUR ALERT: Gabriel has used the word “confirmed” without documentation."
+];
+function triggerEmergency() {
+  if (!emergencyOverlay || !emergencyHeadline) return;
+  emergencyHeadline.textContent = emergencyHeadlines[Math.floor(Math.random() * emergencyHeadlines.length)];
+  emergencyOverlay.classList.add("show");
+  emergencyOverlay.setAttribute("aria-hidden", "false");
+  document.body.classList.add("emergency-open");
+}
+function closeEmergency() {
+  if (!emergencyOverlay) return;
+  emergencyOverlay.classList.remove("show");
+  emergencyOverlay.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("emergency-open");
+}
+[emergencyFab, emergencyInline].forEach(btn => btn && btn.addEventListener("click", triggerEmergency));
+if (emergencyClose) emergencyClose.addEventListener("click", closeEmergency);
+if (emergencyOverlay) emergencyOverlay.addEventListener("click", e => {
+  if (e.target === emergencyOverlay) closeEmergency();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeEmergency();
+});
+
+// =====================================================
+// PRESS CONFERENCE MODE
+// =====================================================
+const pressPerson = document.getElementById("pressPerson");
+const pressQuestion = document.getElementById("pressQuestion");
+const pressAnswer = document.getElementById("pressAnswer");
+const newPressQuestion = document.getElementById("newPressQuestion");
+
+const pressQuestions = [
+  "Q: What happened out there?",
+  "Q: Was that always the race plan?",
+  "Q: Who takes responsibility for this?",
+  "Q: Can you explain the decision-making?",
+  "Q: What do you say to the critics?",
+  "Q: At what point did you know?",
+  "Q: Is the team still united?"
+];
+const pressAnswers = {
+  nick: ["“The important thing is that the cameras caught it.”","“I reject the premise of any question not about my performance.”","“This newsroom remains fully behind me. I checked.”"],
+  shane: ["“Conditions were conditions. Overall, that looked good.”","“There was atmosphere, yes.”","“The ecology of the moment was complicated.”"],
+  byron: ["“On an adjusted basis, nothing happened.”","“We have moved that result off-balance-sheet.”","“Cash flow is temporary. Vibes are an asset.”"],
+  jared: ["“If you look at the arrows, it becomes obvious.”","“Tactically, enormous.”","“The result actually proves my pre-race analysis, retroactively.”"],
+  brynn: ["“I was never missing from my own perspective.”","“The investigation remains ongoing because I have reopened it.”","“I cannot comment on my location.”"],
+  oli: ["“You have to respect the swell.”","“That wake had shape.”","“Give me six seconds of glass and I’ll give you a forecast.”"],
+  liam: ["“I gave them an alternate route.”","“This was preventable if anyone had listened.”","“Congestion does not respect reputation.”"],
+  gabriel: ["“I’m hearing things.”","“Sources close to me say yes.”","“I said allegedly. Legally that should be enough.”"]
+};
+function nextPresser() {
+  if (!pressPerson || !pressQuestion || !pressAnswer) return;
+  pressQuestion.textContent = pressQuestions[Math.floor(Math.random() * pressQuestions.length)];
+  const arr = pressAnswers[pressPerson.value];
+  pressAnswer.textContent = "A: " + arr[Math.floor(Math.random() * arr.length)];
+}
+if (newPressQuestion) newPressQuestion.addEventListener("click", nextPresser);
+if (pressPerson) pressPerson.addEventListener("change", nextPresser);
+
+// =====================================================
+// BEAST AWARDS
+// =====================================================
+const crewNames = ["Nick","Shane","Byron","Jared","Brynn","Oli","Liam","Gabriel"];
+const awardCategory = document.getElementById("awardCategory");
+const awardWinner = document.getElementById("awardWinner");
+const pickAwardWinner = document.getElementById("pickAwardWinner");
+if (pickAwardWinner && awardWinner && awardCategory) {
+  pickAwardWinner.addEventListener("click", () => {
+    const winner = crewNames[Math.floor(Math.random() * crewNames.length)];
+    awardWinner.innerHTML = `<strong>${winner}</strong> wins <em>${awardCategory.value}</em> after a closed-door process with no published criteria.`;
   });
 }

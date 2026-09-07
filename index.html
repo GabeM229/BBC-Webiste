@@ -23,7 +23,7 @@
   <nav class="nav" id="nav">
     <a href="#top">Home</a>
     <a href="#crew">News Team</a>
-    <a href="#segments">Segments</a>
+    
     <a href="#markets">Markets</a>
     <a href="#feature-window">Features</a>
     <a href="#tour">Boat Race</a>
@@ -139,6 +139,22 @@
       </aside>
     </section>
 
+    <section class="section shell compact-section" id="wire">
+      <div class="section-heading compact-heading">
+        <div>
+          <div class="eyebrow">BBC LIVE WIRE</div>
+          <h2>Tour newsroom feed</h2>
+        </div>
+        <p>Rolling updates of varying importance and extremely consistent confidence.</p>
+      </div>
+
+      <div class="wire-shell">
+        <div class="wire-live"><span class="live-dot"></span> LIVE-ISH</div>
+        <div class="wire-feed" id="wireFeed" aria-live="polite"></div>
+        <button class="btn ghost wire-button" id="wireRefresh">Manufacture another update</button>
+      </div>
+    </section>
+
     <section class="section shell" id="crew">
       <div class="section-heading">
         <div>
@@ -247,53 +263,7 @@
         </article>
       </div>
     </section>
-
-    <section class="section dark-panel" id="segments">
-      <div class="shell">
-        <div class="section-heading light">
-          <div>
-            <div class="eyebrow">PROGRAMMING</div>
-            <h2>Tonight on BBC</h2>
-          </div>
-          <p>Investigative journalism has officially peaked.</p>
-        </div>
-
-        <div class="program-grid">
-          <article>
-            <div class="time">05:00</div>
-            <h3>Wake Up, Unfortunately</h3>
-            <p>Live scenes as the crew discovers there is, in fact, a five in the morning.</p>
-          </article>
-          <article>
-            <div class="time">06:30</div>
-            <h3>The Kowie Forecast</h3>
-            <p>Shane points at graphics and makes meteorology everyone else’s problem.</p>
-          </article>
-          <article>
-            <div class="time">12:00</div>
-            <h3>The Rumour Mill with Gabriel</h3>
-            <p>Unverified sources. Extremely verified confidence.</p>
-          </article>
-          <article>
-            <div class="time">14:00</div>
-            <h3>Keeping Up With the Kak Chair</h3>
-            <p>Hard-hitting interviews from the least dignified seat in South African sport. Full segment in the Feature Window.</p>
-          </article>
-          <article>
-            <div class="time">16:30</div>
-            <h3>BEAST Market Close</h3>
-            <p>Byron explains why morale is bullish while bank balances remain deeply bearish.</p>
-          </article>
-          <article>
-            <div class="time">LATE</div>
-            <h3>Sus Records After Dark</h3>
-            <p>The Beats Crew takes over the aux. Editorial oversight immediately resigns.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell" id="markets">
+<section class="section shell" id="markets">
       <div class="section-heading">
         <div>
           <div class="eyebrow">BBC BUSINESS</div>
@@ -468,38 +438,224 @@
     <section class="section shell" id="tour">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">TOUR DESK</div>
-          <h2>Universities Boat Race: Kowie River</h2>
+          <div class="eyebrow">RACE WEEK HQ</div>
+          <h2>2026 RMB Universities’ Boat Race</h2>
         </div>
+        <p>Kowie River • 09–12 September 2026. Men’s B events are highlighted for obvious reasons.</p>
       </div>
-      <div class="tour-coming-soon">
-        <div class="tour-coming-badge">COMING SOON</div>
-        <h3>Official Boat Race coverage is still in the newsroom.</h3>
-        <p>Schedules, race-day updates, results and whatever else survives editorial review will appear here once the BEAST field unit reaches the Kowie.</p>
+
+      <div class="race-alert">
+        <span class="race-alert-label">BEAST WATCH</span>
+        <strong id="nextRaceText">Calculating the next opportunity for unnecessary pressure...</strong>
+      </div>
+
+      <div class="schedule-tabs" role="tablist" aria-label="Race week programme">
+        <button class="schedule-tab active" data-day="wed" role="tab">Wed 09</button>
+        <button class="schedule-tab" data-day="thu" role="tab">Thu 10</button>
+        <button class="schedule-tab" data-day="fri" role="tab">Fri 11</button>
+        <button class="schedule-tab" data-day="sat" role="tab">Sat 12</button>
+      </div>
+
+      <div class="schedule-window">
+        <div class="schedule-day active" data-day-panel="wed">
+          <div class="schedule-day-title"><span>WEDNESDAY 09 SEPTEMBER</span><small>Admin day: paperwork before violence.</small></div>
+          <div class="schedule-row"><time>13:00–15:30</time><strong>Team Registration</strong><span>Halyards Hotel</span></div>
+          <div class="schedule-row"><time>15:45–17:15</time><strong>Coxswains, Managers & Coaches Meeting (TBC)</strong><span>—</span></div>
+          <div class="schedule-row"><time>17:00–17:30</time><strong>USSA-Rowing Executive Meeting</strong><span>River & Ski Boat Club</span></div>
+          <div class="schedule-row"><time>17:30–19:00</time><strong>USSA-Rowing Annual General Meeting</strong><span>River & Ski Boat Club</span></div>
+        </div>
+
+        <div class="schedule-day" data-day-panel="thu">
+          <div class="schedule-day-title"><span>THURSDAY 10 SEPTEMBER</span><small>Heads races. The spreadsheet becomes emotional.</small></div>
+          <div class="schedule-row beast-event"><time>09:00</time><strong>Men’s B Heads Race</strong><span>BEAST WATCH</span></div>
+          <div class="schedule-row"><time>11:00</time><strong>Women’s B Heads Race</strong><span>Heads Race</span></div>
+          <div class="schedule-row"><time>14:00</time><strong>Men’s A Heads Race</strong><span>Heads Race</span></div>
+          <div class="schedule-row"><time>16:00</time><strong>Women’s A Heads Race</strong><span>Heads Race</span></div>
+          <div class="schedule-row"><time>18:30–22:00</time><strong>Formal Dinner</strong><span>Medolino Caravan Park</span></div>
+        </div>
+
+        <div class="schedule-day" data-day-panel="fri">
+          <div class="schedule-day-title"><span>FRIDAY 11 SEPTEMBER</span><small>Finals begin. Journalism deteriorates accordingly.</small></div>
+          <div class="schedule-row"><time>09:30</time><strong>Church Service</strong><span>Anglican Church</span></div>
+          <div class="schedule-row beast-event"><time>11:55</time><strong>Men’s B Finals</strong><span>7 + 8</span></div>
+          <div class="schedule-row beast-event"><time>12:30</time><strong>Men’s B Finals</strong><span>5 + 6</span></div>
+          <div class="schedule-row"><time>13:05</time><strong>Women’s B Finals</strong><span>5 + 6</span></div>
+          <div class="schedule-row beast-event"><time>13:40</time><strong>Men’s B Finals</strong><span>3 + 4</span></div>
+          <div class="schedule-row"><time>14:15</time><strong>Women’s B Finals</strong><span>3 + 4</span></div>
+          <div class="schedule-row"><time>14:50</time><strong>Men’s A Finals</strong><span>9 + 10</span></div>
+          <div class="schedule-row"><time>15:25</time><strong>Women’s A Finals</strong><span>9 + 10</span></div>
+          <div class="schedule-row"><time>18:00–21:00</time><strong>Presidents Cocktail Dinner</strong><span>River & Ski Boat Club</span></div>
+        </div>
+
+        <div class="schedule-day" data-day-panel="sat">
+          <div class="schedule-day-title"><span>SATURDAY 12 SEPTEMBER</span><small>Finals day. All previous predictions become “context.”</small></div>
+          <div class="schedule-row"><time>09:00</time><strong>Men’s A Final</strong><span>7 + 8</span></div>
+          <div class="schedule-row"><time>09:35</time><strong>Women’s A Final</strong><span>7 + 8</span></div>
+          <div class="schedule-row"><time>10:10</time><strong>Men’s A Final</strong><span>5 + 6</span></div>
+          <div class="schedule-row"><time>10:45</time><strong>Women’s A Final</strong><span>5 + 6</span></div>
+          <div class="schedule-row beast-event"><time>11:20</time><strong>Men’s B Final</strong><span>1 + 2</span></div>
+          <div class="schedule-row"><time>11:55</time><strong>Women’s B Final</strong><span>1 + 2</span></div>
+          <div class="schedule-row"><time>12:30</time><strong>Lunch</strong><span>Strategic refuelling</span></div>
+          <div class="schedule-row"><time>13:30</time><strong>Men’s A Final</strong><span>3 + 4</span></div>
+          <div class="schedule-row"><time>14:05</time><strong>Women’s A Final</strong><span>3 + 4</span></div>
+          <div class="schedule-row"><time>14:40</time><strong>Men’s A Final</strong><span>1 + 2</span></div>
+          <div class="schedule-row"><time>15:20</time><strong>Women’s A Final</strong><span>1 + 2</span></div>
+          <div class="schedule-row"><time>16:00</time><strong>Prize Giving</strong><span>Halyards Hotel</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="section culture">
-      <div class="shell culture-grid">
-        <div>
-          <div class="eyebrow">STYLE DESK</div>
-          <h2>Official newsroom dress code*</h2>
-          <p>Suit jackets. Racing socks. Fancy shoes. Trisuits. Questionable glasses.</p>
-          <p class="fine">*The word “official” is being used very generously.</p>
+    <section class="section control-room-section" id="control-room">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">BBC CONTROL ROOM</div>
+            <h2>Interactive newsroom nonsense</h2>
+          </div>
+          <p>Four tools built to solve problems that did not exist until this website was created.</p>
         </div>
-        <div>
-          <div class="eyebrow">HAIR & BEAUTY</div>
-          <h2>80s newsroom emergency kit</h2>
-          <p>Mohawks. Headbands. Hairspray. An amount of confidence inversely proportional to taste.</p>
-        </div>
-        <div>
-          <div class="eyebrow">MASCOT DESK</div>
-          <h2>Fish vs. Piggy Bank</h2>
-          <p>The BBC mascot race remains too close to call. Senior management has therefore approved the most rigorous available decision-making process: a coin flip.</p>
+
+        <div class="control-deck">
+          <article class="control-card scandal-card">
+            <span class="mini-tag">CREW SCANDAL INDEX</span>
+            <h3 id="scandalLabel">Routine allegations</h3>
+            <div class="scandal-meter"><div class="scandal-fill" id="scandalFill"></div></div>
+            <div class="scandal-scale"><span>Quiet news day</span><span>Emergency presser</span></div>
+            <button class="btn primary mini-action" id="recalculateScandal">Recalculate risk</button>
+          </article>
+
+          <article class="control-card quote-card">
+            <span class="mini-tag">QUOTE OF THE DAY</span>
+            <blockquote id="quoteText">“No comment, but put that in the article.”</blockquote>
+            <span class="quote-source" id="quoteSource">— BBC source familiar with the matter</span>
+            <button class="btn ghost mini-action" id="nextQuote">Request another quote</button>
+          </article>
+
+          <article class="control-card lower-third-card">
+            <span class="mini-tag">LOWER-THIRD GENERATOR</span>
+            <h3>Make any correspondent look qualified.</h3>
+            <select id="lowerThirdPerson" class="bbc-select">
+              <option value="nick">Nick Glen Judelsohn</option>
+              <option value="shane">Shane Luke Mearns</option>
+              <option value="byron">Byron Alexander Sikiotis</option>
+              <option value="jared">Jared Kyle Kabo Armstrong</option>
+              <option value="brynn">Brynn Thomas Rawlins</option>
+              <option value="oli">Oliver Frank Eckley</option>
+              <option value="liam">Liam Donald Gaunt</option>
+              <option value="gabriel">Gabriel Luke Soares Moustakis</option>
+            </select>
+            <div class="lower-third-preview">
+              <strong id="lowerThirdName">NICK GLEN JUDELSOHN</strong>
+              <span id="lowerThirdTitle">GLOBAL CHIEF ANCHOR & NATIONAL TREASURE</span>
+            </div>
+            <button class="btn primary mini-action" id="generateLowerThird">Generate credentials</button>
+          </article>
+
+          <article class="control-card emergency-card">
+            <span class="mini-tag">EMERGENCY BROADCAST</span>
+            <h3>Something completely ordinary just happened.</h3>
+            <p>Give it the red banner treatment it definitely deserves.</p>
+            <button class="emergency-inline" id="emergencyInline">DECLARE NATIONAL EMERGENCY</button>
+          </article>
         </div>
       </div>
     </section>
+
+    <section class="section shell studio-section" id="studio">
+      <div class="section-heading compact-heading">
+        <div>
+          <div class="eyebrow">BBC STUDIO DECK</div>
+          <h2>Swipe through the evidence locker</h2>
+        </div>
+        <p>Investigations, press conferences, awards, gallery evidence and other editorial hazards.</p>
+      </div>
+
+      <div class="studio-track">
+        <article class="studio-card evidence-board">
+          <div class="studio-number">01</div>
+          <span class="mini-tag">EVIDENCE BOARD</span>
+          <h3>Operation: Who moved the thing?</h3>
+          <div class="evidence-grid">
+            <div class="evidence-note">MISSING<br><strong>One strap</strong><small>Last seen “right here”</small></div>
+            <div class="evidence-note">PERSON OF INTEREST<br><strong>Brynn</strong><small>Also investigator</small></div>
+            <div class="evidence-note">MOTIVE<br><strong>Unclear</strong><small>Vibes suspicious</small></div>
+            <div class="evidence-note">LEAD<br><strong>Group chat</strong><small>Mostly useless</small></div>
+          </div>
+          <p class="studio-copy">BBC investigators have established several connections and almost none of them are useful.</p>
+        </article>
+
+        <article class="studio-card press-card">
+          <div class="studio-number">02</div>
+          <span class="mini-tag">PRESS CONFERENCE MODE</span>
+          <h3>Ask the hard questions. Receive the wrong answers.</h3>
+          <select id="pressPerson" class="bbc-select">
+            <option value="nick">Nick</option><option value="shane">Shane</option>
+            <option value="byron">Byron</option><option value="jared">Jared</option>
+            <option value="brynn">Brynn</option><option value="oli">Oli</option>
+            <option value="liam">Liam</option><option value="gabriel">Gabriel</option>
+          </select>
+          <div class="press-box">
+            <strong id="pressQuestion">Q: What happened out there?</strong>
+            <p id="pressAnswer">A: “The important thing is that the cameras caught it.”</p>
+          </div>
+          <button class="btn primary mini-action" id="newPressQuestion">Next hostile question</button>
+        </article>
+
+        <article class="studio-card awards-card">
+          <div class="studio-number">03</div>
+          <span class="mini-tag">BEAST AWARDS</span>
+          <h3>The committee has met. Standards were not discussed.</h3>
+          <select id="awardCategory" class="bbc-select">
+            <option>Most Likely to Miss Call Time</option>
+            <option>Strongest Allegation, Weakest Evidence</option>
+            <option>Best Unnecessary Media Presence</option>
+            <option>Most Valuable Excuse</option>
+            <option>Best Performance Near a Camera</option>
+          </select>
+          <div class="award-winner" id="awardWinner">Winner pending an opaque selection process.</div>
+          <button class="btn primary mini-action" id="pickAwardWinner">Convene the committee</button>
+        </article>
+
+        <article class="studio-card gallery-card">
+          <div class="studio-number">04</div>
+          <span class="mini-tag">TOUR GALLERY</span>
+          <h3>Photographic evidence</h3>
+          <div class="mini-gallery">
+            <figure><img src="nick-new.jpg?v=2" alt="Nick"><figcaption>Anchor seen near a camera.</figcaption></figure>
+            <figure><img src="gaby.jpg" alt="Gabriel"><figcaption>Rumour desk enters glamour phase.</figcaption></figure>
+            <figure><img src="shane.jpg" alt="Shane"><figcaption>Weather model under peer review.</figcaption></figure>
+            <figure><img src="byron.jpg" alt="Byron"><figcaption>Markets react badly.</figcaption></figure>
+          </div>
+          <p class="studio-copy">Tour photos can be swapped into this strip later without changing the layout.</p>
+        </article>
+
+        <article class="studio-card culture-card">
+          <div class="studio-number">05</div>
+          <span class="mini-tag">CULTURE DESK</span>
+          <h3>Formal journalism, informal decision-making</h3>
+          <ul class="culture-list">
+            <li><strong>Dress:</strong> suit jackets, racing socks, fancy shoes, trisuits, questionable glasses.</li>
+            <li><strong>Hair:</strong> mohawks, 80s headbands and enough hairspray to affect Shane’s forecast.</li>
+            <li><strong>Music:</strong> The Beats Crew / Sus Records.</li>
+            <li><strong>Mascot:</strong> fish vs. piggy bank. Democracy remains optional.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="feature-hint studio-hint">Swipe or horizontal-scroll the Studio Deck →</div>
+    </section>
   </main>
+
+  <button class="emergency-fab" id="emergencyFab" aria-label="Trigger emergency broadcast">!</button>
+
+  <div class="emergency-overlay" id="emergencyOverlay" aria-hidden="true">
+    <div class="emergency-banner">BBC EMERGENCY BROADCAST</div>
+    <button class="emergency-close" id="emergencyClose" aria-label="Close emergency broadcast">×</button>
+    <div class="emergency-inner">
+      <div class="emergency-kicker">BREAKING • DEVELOPING • PROBABLY NOT IMPORTANT</div>
+      <h2 id="emergencyHeadline">Crew member has moved a chair without notifying the newsroom.</h2>
+      <p>Normal programming has been suspended until everyone has reacted sufficiently.</p>
+    </div>
+  </div>
 
   <footer>
     <div class="shell footer-grid">
