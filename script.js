@@ -505,14 +505,64 @@ const emergencyHeadlines = [
   "TRAFFIC EMERGENCY: Two riggers have entered the same corridor.",
   "RUMOUR ALERT: Gabriel has used the word “confirmed” without documentation."
 ];
+// A short, locally generated broadcast sting; no audio download required.
+let emergencyAudioContext;
+let emergencySoundNodes = [];
+let emergencySoundGeneration = 0;
+function stopEmergencySound() {
+  emergencySoundGeneration += 1;
+  emergencySoundNodes.forEach(({ oscillator, gain }) => {
+    try { oscillator.stop(); } catch (_) { /* Already ended. */ }
+    oscillator.disconnect();
+    gain.disconnect();
+  });
+  emergencySoundNodes = [];
+}
+async function playEmergencySound() {
+  stopEmergencySound();
+  const generation = emergencySoundGeneration;
+  try {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    emergencyAudioContext = emergencyAudioContext || new AudioContextClass();
+    if (emergencyAudioContext.state === "suspended") await emergencyAudioContext.resume();
+    if (generation !== emergencySoundGeneration) return;
+    const start = emergencyAudioContext.currentTime;
+    [660, 880, 660, 880, 1040].forEach((frequency, index) => {
+      const oscillator = emergencyAudioContext.createOscillator();
+      const gain = emergencyAudioContext.createGain();
+      const at = start + index * 0.24;
+      const duration = index === 4 ? 0.45 : 0.2;
+      oscillator.type = "triangle";
+      oscillator.frequency.setValueAtTime(frequency, at);
+      gain.gain.setValueAtTime(0, at);
+      gain.gain.linearRampToValueAtTime(0.14, at + 0.015);
+      gain.gain.setValueAtTime(0.14, at + duration - 0.06);
+      gain.gain.linearRampToValueAtTime(0, at + duration);
+      oscillator.connect(gain);
+      gain.connect(emergencyAudioContext.destination);
+      const node = { oscillator, gain };
+      emergencySoundNodes.push(node);
+      oscillator.onended = () => {
+        oscillator.disconnect();
+        gain.disconnect();
+        emergencySoundNodes = emergencySoundNodes.filter(item => item !== node);
+      };
+      oscillator.start(at);
+      oscillator.stop(at + duration);
+    });
+  } catch (_) { /* The visual broadcast still works if audio is unavailable. */ }
+}
 function triggerEmergency() {
   if (!emergencyOverlay || !emergencyHeadline) return;
+  playEmergencySound();
   emergencyHeadline.textContent = emergencyHeadlines[Math.floor(Math.random() * emergencyHeadlines.length)];
   emergencyOverlay.classList.add("show");
   emergencyOverlay.setAttribute("aria-hidden", "false");
   document.body.classList.add("emergency-open");
 }
 function closeEmergency() {
+  stopEmergencySound();
   if (!emergencyOverlay) return;
   emergencyOverlay.classList.remove("show");
   emergencyOverlay.setAttribute("aria-hidden", "true");

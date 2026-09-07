@@ -1542,3 +1542,12 @@ body.emergency-open { overflow: hidden; }
     grid-auto-columns: 88%;
   }
 }
+
+/* SUS Records: the fourth Control Room pane. */
+.spotify-card { border-top: 3px solid #1ed760; }
+.control-card.spotify-card .mini-tag { color: #1ed760; }
+.spotify-card h3 { font-size: 36px; margin-top: 20px; }
+.spotify-caption { color: #aaa; font-size: 11px; line-height: 1.6; margin-bottom: 22px; }
+.spotify-link { background: #1ed760; color: #071d0f; border: 1px solid #1ed760; }
+.spotify-link:hover { background: #49e681; color: #071d0f; }
+.spotify-link:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
