@@ -441,7 +441,7 @@
         <div class="section-heading">
           <div>
             <div class="eyebrow">BBC BEAST FORECAST</div>
-            <h2>Today: 90% chance of crew nonsense.</h2>
+            <h2>Today: 90% chance of BEAST crew nonsense.</h2>
           </div>
           <p>A highly scientific outlook generated using vibes, proximity to race day and the current state of the group chat.</p>
         </div>
@@ -450,7 +450,7 @@
           <div class="beast-forecast-summary">
             <div class="forecast-big-number"><span id="forecastChance">90</span><small>%</small></div>
             <div>
-              <span class="mini-tag">CURRENT CONDITIONS</span>
+              <span class="mini-tag">TODAY’S OUTLOOK</span>
               <h3 id="forecastHeadline">Heavy nonsense with scattered allegations</h3>
               <p id="forecastDetail">Expect isolated bursts of boat chat, sudden media activity and a strong chance of someone saying “this is massive.”</p>
             </div>
@@ -458,21 +458,33 @@
 
           <div class="forecast-chart-wrap">
             <div class="forecast-chart-head">
-              <span>Hourly nonsense probability</span>
-              <button class="text-link" id="refreshForecast">Run another model →</button>
+              <span>Today · Hourly outlook</span>
+              <span class="forecast-location">Kowie / BEAST territory</span>
             </div>
-            <div class="forecast-chart" id="forecastChart" aria-label="Hourly BEAST nonsense probability chart"></div>
-            <div class="forecast-axis">
-              <span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span>
-            </div>
-          </div>
-
-          <div class="forecast-factors">
-            <button class="forecast-chip active" data-boost="0">Baseline</button>
-            <button class="forecast-chip" data-boost="5">Race day</button>
-            <button class="forecast-chip" data-boost="9">Formalwear</button>
-            <button class="forecast-chip" data-boost="12">Camera visible</button>
-            <button class="forecast-chip" data-boost="15">Nick on air</button>
+            <figure class="forecast-timeline">
+              <figcaption class="forecast-chart-caption">Chance of nonsense <span>Peak: 98% at 15:00</span></figcaption>
+              <div class="forecast-events" aria-label="Forecast events across the day">
+                <div><span aria-hidden="true">☁</span><strong>Scattered allegations</strong></div>
+                <div><span aria-hidden="true">📷</span><strong>Camera activity</strong></div>
+                <div><span aria-hidden="true">💬</span><strong>Sudden boat chat</strong></div>
+                <div class="forecast-severe"><span aria-hidden="true">ϟ</span><strong>Severe Nick event</strong></div>
+                <div><span aria-hidden="true">☂</span><strong>Rumour showers</strong></div>
+                <div><span aria-hidden="true">☾</span><strong>Lingering nonsense</strong></div>
+              </div>
+              <svg class="forecast-curve" viewBox="0 0 1000 220" preserveAspectRatio="none" role="img" aria-labelledby="forecastGraphTitle forecastGraphDesc">
+                <title id="forecastGraphTitle">Today’s hourly BEAST nonsense prediction</title>
+                <desc id="forecastGraphDesc">A continuous curve: 06:00, 48%; 09:00, 72%; noon, 64%; 15:00, 98%; 18:00, 82%; 21:00, 90%. Severe Nick activity peaks in the afternoon.</desc>
+                <defs><linearGradient id="nonsenseFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a40000" stop-opacity=".24"/><stop offset="100%" stop-color="#a40000" stop-opacity=".02"/></linearGradient></defs>
+                <g stroke="#dedad3" stroke-dasharray="3 5"><path d="M0 20H1000 M0 110H1000 M0 200H1000"/></g>
+                <path d="M0 132 C30 132 45 114 83 114 S195 71 250 71 S360 85 417 85 S527 24 583 24 S694 52 750 52 S860 38 917 38 S970 47 1000 47 L1000 200H0Z" fill="url(#nonsenseFill)"/>
+                <path d="M0 132 C30 132 45 114 83 114 S195 71 250 71 S360 85 417 85 S527 24 583 24 S694 52 750 52 S860 38 917 38 S970 47 1000 47" fill="none" stroke="#a40000" stroke-width="3" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <div class="forecast-hours">
+                <div><strong>48%</strong><time>06:00</time></div><div><strong>72%</strong><time>09:00</time></div><div><strong>64%</strong><time>12:00</time></div><div class="forecast-severe"><strong>98%</strong><time>15:00</time></div><div><strong>82%</strong><time>18:00</time></div><div><strong>90%</strong><time>21:00</time></div>
+              </div>
+            </figure>
+            <p class="forecast-advisory"><strong>Afternoon advisory</strong> A severe Nick event may develop without warning. Camera crews should expect prolonged exposure.</p>
+            <p class="forecast-source">BBC Weather Desk · A confidently unverified prediction.</p>
           </div>
         </div>
       </div>
@@ -602,31 +614,23 @@
           <div class="eyebrow">BBC CAMERA ROLL</div>
           <h2>Tour evidence, newest first.</h2>
         </div>
-        <p>The latest photo always appears at the front. Scroll backwards through the archive as the week gets progressively less defensible.</p>
+        <p>The evidence will arrive with the crew. Latest dispatches first; questionable memories preserved for posterity.</p>
       </div>
 
       <div class="camera-roll-frame">
         <div class="camera-roll-meta">
-          <span><strong id="cameraRollCount">4</strong> items in the current archive</span>
-          <span>Swipe or horizontal-scroll →</span>
+          <span><strong id="cameraRollCount">0</strong> photos in the archive</span>
+          <span>Awaiting first dispatch</span>
         </div>
         <div class="camera-roll-track" id="cameraRollTrack">
-          <figure class="camera-roll-item">
-            <img src="nick-new.jpg?v=2" alt="Nick Glen Judelsohn">
-            <figcaption><span>Latest</span> Anchor sighting. Camera immediately became the most important object in the room.</figcaption>
-          </figure>
-          <figure class="camera-roll-item">
-            <img src="gaby.jpg" alt="Gabriel Luke Soares Moustakis">
-            <figcaption><span>Archive</span> Rumour desk enters glamour phase.</figcaption>
-          </figure>
-          <figure class="camera-roll-item">
-            <img src="shane.jpg" alt="Shane Luke Mearns">
-            <figcaption><span>Archive</span> Weather model remains under peer review.</figcaption>
-          </figure>
-          <figure class="camera-roll-item">
-            <img src="byron.jpg" alt="Byron Alexander Sikiotis">
-            <figcaption><span>Archive</span> Markets react badly to developments.</figcaption>
-          </figure>
+          <!-- Replace this empty state with camera-roll-item figures, newest first. -->
+          <div class="camera-roll-empty">
+            <span class="camera-empty-face" aria-label="Sad face">:(</span>
+            <span class="camera-empty-kicker">FIELD UNIT ON STANDBY</span>
+            <h3>The tour hasn’t begun yet.</h3>
+            <p>No photos. No evidence. A suspiciously clean record.</p>
+            <span class="camera-empty-footer">The camera roll will fill up once the tour gets underway.</span>
+          </div>
         </div>
       </div>
     </section>

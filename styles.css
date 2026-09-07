@@ -1412,78 +1412,32 @@ body.emergency-open { overflow: hidden; }
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-.forecast-chart {
-  height: 220px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 8px;
-  align-items: end;
-  border-bottom: 1px solid #aaa;
-  background:
-    linear-gradient(to top, transparent 24%, rgba(0,0,0,.045) 25%, transparent 26%),
-    linear-gradient(to top, transparent 49%, rgba(0,0,0,.045) 50%, transparent 51%),
-    linear-gradient(to top, transparent 74%, rgba(0,0,0,.045) 75%, transparent 76%);
-}
-.forecast-column {
-  position: relative;
-  height: 100%;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-}
-.forecast-column i {
-  width: 100%;
-  max-width: 40px;
-  display: block;
-  background: #a40000;
-  transition: height .4s ease, background .15s ease;
-}
-.forecast-column:hover i,
-.forecast-column.selected i {
-  background: #d31313;
-}
-.forecast-value {
-  position: absolute;
-  top: max(2px, calc(100% - var(--bar-height, 100%) - 22px));
-  transform: translateY(-2px);
-  font-family: "Courier New", monospace;
-  font-size: 10px;
-  font-weight: 900;
-  color: #555;
-}
-.forecast-axis {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  margin-top: 8px;
-  color: #777;
-  font-family: "Courier New", monospace;
-  font-size: 10px;
-}
-.forecast-axis span:last-child { text-align: right; }
-.forecast-factors {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding: 0 30px 28px;
-}
-.forecast-chip {
-  border: 1px solid #bbb;
-  background: #f4f2ed;
-  color: #333;
-  padding: 9px 11px;
-  font-size: 11px;
-  font-weight: 800;
-  cursor: pointer;
-}
-.forecast-chip.active {
-  border-color: #a40000;
-  background: #a40000;
-  color: #fff;
-}
+/* The forecast is a fixed editorial graphic; no controls or hover states. */
+.forecast-location { color: #666; font-weight: 600; }
+.forecast-timeline { margin: 0; }
+.forecast-chart-caption { display: flex; justify-content: space-between; gap: 12px; color: #666; font-size: 11px; padding-bottom: 20px; }
+.forecast-chart-caption span { color: #a40000; font-weight: 700; }
+.forecast-events, .forecast-hours { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); text-align: center; }
+.forecast-events { align-items: start; gap: 6px; }
+.forecast-events > div { padding: 0 3px; }
+.forecast-events > div:nth-child(even) { padding-top: 14px; }
+.forecast-events span { display: block; font-size: 25px; line-height: 32px; margin-bottom: 5px; }
+.forecast-events strong { display: block; max-width: 110px; margin: auto; font-size: 12px; line-height: 1.4; }
+.forecast-severe { color: #a40000; }
+.forecast-curve { width: 100%; height: 180px; display: block; margin-top: 12px; }
+.forecast-hours { margin-top: -8px; padding-bottom: 20px; border-bottom: 1px solid #ddd8cf; }
+.forecast-hours strong { display: block; font-size: 14px; }
+.forecast-hours time { display: block; font-size: 11px; color: #666; margin-top: 7px; font-variant-numeric: tabular-nums; }
+.forecast-advisory { background: #f7f1e8; border-left: 3px solid #a40000; padding: 12px 14px; font-size: 12px; line-height: 1.6; color: #4d4038; }
+.forecast-advisory strong { color: #a40000; margin-right: 6px; }
+.forecast-source { color: #777; font-size: 10px; margin: 16px 0 4px; }
+.camera-roll-track:has(.camera-roll-empty) { grid-auto-columns: 100%; }
+.camera-roll-empty { min-width: 0; min-height: 310px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 36px 22px; text-align: center; background: linear-gradient(135deg, #202020, #111); scroll-snap-align: start; }
+.camera-empty-face { color: #aaa; font: 44px/1.1 'Courier New', monospace; letter-spacing: -.1em; margin-bottom: 24px; }
+.camera-empty-kicker { color: #ff7575; font-size: 10px; font-weight: 800; letter-spacing: .16em; }
+.camera-roll-empty h3 { color: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(25px, 4vw, 36px); margin: 12px 0; }
+.camera-roll-empty p { color: #ccc; font-size: 13px; line-height: 1.6; margin: 0; }
+.camera-empty-footer { color: #999; font-size: 11px; line-height: 1.6; margin-top: 26px; }
 
 /* =====================================================
    BBC CAMERA ROLL
@@ -1571,13 +1525,14 @@ body.emergency-open { overflow: hidden; }
   .forecast-chart-wrap {
     padding: 20px 16px 14px;
   }
-  .forecast-chart {
-    height: 180px;
-    gap: 5px;
-  }
-  .forecast-factors {
-    padding: 0 16px 20px;
-  }
+  .forecast-chart-head { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .forecast-chart-caption { font-size: 10px; }
+  .forecast-events { gap: 2px; }
+  .forecast-events strong { font-size: 9px; overflow-wrap: anywhere; }
+  .forecast-events span { font-size: 22px; }
+  .forecast-curve { height: 140px; }
+  .forecast-hours strong { font-size: 12px; }
+  .forecast-hours time { font-size: 9px; }
   .camera-roll-meta {
     align-items: flex-start;
     flex-direction: column;
