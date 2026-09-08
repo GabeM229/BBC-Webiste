@@ -1,18 +1,8 @@
-BEAST BBC — WEATHER + CAMERA ROLL UPDATE
+Replace index.html, styles.css, script.js and upload camera-roll-001.jpg.
 
-Replace:
-- index.html
-- styles.css
-- script.js
-
-Changes:
-- Fixed Quote of the Day button styling so it matches the other red action buttons.
-- Removed Crew Scandal Index from the Control Room.
-- Added a standalone interactive BBC BEAST Forecast pane.
-- Forecast starts at 90% chance of crew nonsense, has an hourly interactive chart, refreshable models, and condition chips such as Race day / Formalwear / Camera visible / Nick on air.
-- Removed the entire Studio Deck.
-- Replaced it with a BBC Camera Roll, newest-first, horizontally scrollable.
-- Existing race schedule, feature window, pseudo-live video, emergency broadcast, lower-thirds and quote tools remain.
-
-Camera roll workflow:
-The public site does not show upload instructions. For future updates, add the new image to the repo and add its <figure> block at the TOP of #cameraRollTrack in index.html. That keeps newest photos first while old photos remain scrollable.
+This update:
+- Adds the supplied BEAST travel photo as the first/newest Camera Roll item.
+- Removes the old four-image camera roll.
+- Makes the BEAST Forecast fixed/non-editable.
+- Replaces the bar chart with a continuous weather-style forecast curve.
+- Adds forecast events such as scattered allegations, boat chat, rumour showers, severe Nick event and a newsroom thunderstorm.

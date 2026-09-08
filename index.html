@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#8a0000" />
   <meta name="description" content="BBC — BEAST Broadcasting Corporation. Unofficial parody coverage of the Tuks Rowing B Men at Universities Boat Race." />
   <title>BBC | BEAST Broadcasting Corporation</title>
-  <link rel="stylesheet" href="styles.css?v=crew-fit-3" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="top-strip">
@@ -57,9 +57,12 @@
           <span class="live-dot"></span>
           <span>LIVE FROM THE KOWIE</span>
         </div>
-        <a class="hero-photo crew-photo-link" href="crew-photo.jpg?v=2" target="_blank" rel="noopener" aria-label="Open the full crew photo">
-          <img src="crew-photo.jpg?v=2" alt="The BEAST crew together on a staircase in matching Tuks tracksuits" width="3206" height="3989" fetchpriority="high">
-        </a>
+        <div class="placeholder hero-photo">
+          <div>
+            <span>CREW PHOTO</span>
+            <small>Drop your group photo in later</small>
+          </div>
+        </div>
         <div class="hero-card-caption">
           <strong>BBC NEWSROOM EXCLUSIVE</strong>
           <span>Sources confirm eight men have arrived with one functioning collective brain cell.</span>
@@ -438,50 +441,69 @@
         <div class="section-heading">
           <div>
             <div class="eyebrow">BBC BEAST FORECAST</div>
-            <h2>Today: 90% chance of BEAST crew nonsense.</h2>
+            <h2>Today: 90% chance of crew nonsense.</h2>
           </div>
-          <p>A highly scientific outlook generated using vibes, proximity to race day and the current state of the group chat.</p>
+          <p>A completely non-negotiable forecast issued by the BBC Department of Behavioural Meteorology.</p>
         </div>
 
-        <div class="beast-forecast-card">
+        <div class="beast-forecast-card fixed-forecast">
           <div class="beast-forecast-summary">
-            <div class="forecast-big-number"><span id="forecastChance">90</span><small>%</small></div>
+            <div class="forecast-big-number"><span>90</span><small>%</small></div>
             <div>
-              <span class="mini-tag">TODAY’S OUTLOOK</span>
-              <h3 id="forecastHeadline">Heavy nonsense with scattered allegations</h3>
-              <p id="forecastDetail">Expect isolated bursts of boat chat, sudden media activity and a strong chance of someone saying “this is massive.”</p>
+              <span class="mini-tag">CURRENT CONDITIONS</span>
+              <h3>Heavy nonsense with scattered allegations</h3>
+              <p>Conditions are expected to intensify through the afternoon before reaching severe levels around any visible camera.</p>
             </div>
           </div>
 
-          <div class="forecast-chart-wrap">
+          <div class="forecast-chart-wrap weather-style-chart">
             <div class="forecast-chart-head">
-              <span>Today · Hourly outlook</span>
-              <span class="forecast-location">Kowie / BEAST territory</span>
+              <span>Hourly nonsense outlook</span>
+              <span class="forecast-issued">Issued 06:00 • confidence: irresponsibly high</span>
             </div>
-            <figure class="forecast-timeline">
-              <figcaption class="forecast-chart-caption">Chance of nonsense <span>Peak: 98% at 15:00</span></figcaption>
-              <div class="forecast-events" aria-label="Forecast events across the day">
-                <div><span aria-hidden="true">☁</span><strong>Scattered allegations</strong></div>
-                <div><span aria-hidden="true">📷</span><strong>Camera activity</strong></div>
-                <div><span aria-hidden="true">💬</span><strong>Sudden boat chat</strong></div>
-                <div class="forecast-severe"><span aria-hidden="true">ϟ</span><strong>Severe Nick event</strong></div>
-                <div><span aria-hidden="true">☂</span><strong>Rumour showers</strong></div>
-                <div><span aria-hidden="true">☾</span><strong>Lingering nonsense</strong></div>
-              </div>
-              <svg class="forecast-curve" viewBox="0 0 1000 220" preserveAspectRatio="none" role="img" aria-labelledby="forecastGraphTitle forecastGraphDesc">
-                <title id="forecastGraphTitle">Today’s hourly BEAST nonsense prediction</title>
-                <desc id="forecastGraphDesc">A continuous curve: 06:00, 48%; 09:00, 72%; noon, 64%; 15:00, 98%; 18:00, 82%; 21:00, 90%. Severe Nick activity peaks in the afternoon.</desc>
-                <defs><linearGradient id="nonsenseFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a40000" stop-opacity=".24"/><stop offset="100%" stop-color="#a40000" stop-opacity=".02"/></linearGradient></defs>
-                <g stroke="#dedad3" stroke-dasharray="3 5"><path d="M0 20H1000 M0 110H1000 M0 200H1000"/></g>
-                <path d="M0 132 C30 132 45 114 83 114 S195 71 250 71 S360 85 417 85 S527 24 583 24 S694 52 750 52 S860 38 917 38 S970 47 1000 47 L1000 200H0Z" fill="url(#nonsenseFill)"/>
-                <path d="M0 132 C30 132 45 114 83 114 S195 71 250 71 S360 85 417 85 S527 24 583 24 S694 52 750 52 S860 38 917 38 S970 47 1000 47" fill="none" stroke="#a40000" stroke-width="3" vector-effect="non-scaling-stroke"/>
+
+            <div class="forecast-graph" aria-label="Hourly BEAST nonsense forecast">
+              <svg class="forecast-svg" viewBox="0 0 1000 290" role="img" aria-label="Continuous forecast curve showing high levels of crew nonsense throughout the day">
+                <defs>
+                  <linearGradient id="forecastArea" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#a40000" stop-opacity=".28"/>
+                    <stop offset="100%" stop-color="#a40000" stop-opacity=".02"/>
+                  </linearGradient>
+                </defs>
+                <g class="forecast-grid-lines">
+                  <line x1="55" y1="55" x2="970" y2="55"/>
+                  <line x1="55" y1="115" x2="970" y2="115"/>
+                  <line x1="55" y1="175" x2="970" y2="175"/>
+                  <line x1="55" y1="235" x2="970" y2="235"/>
+                </g>
+                <path class="forecast-area" d="M55,166 C110,154 150,146 205,139 S300,104 355,111 S455,76 515,92 S615,58 680,72 S780,38 835,61 S925,48 970,68 L970,250 L55,250 Z"/>
+                <path class="forecast-line" d="M55,166 C110,154 150,146 205,139 S300,104 355,111 S455,76 515,92 S615,58 680,72 S780,38 835,61 S925,48 970,68"/>
+                <g class="forecast-points">
+                  <circle cx="55" cy="166" r="5"/><circle cx="205" cy="139" r="5"/><circle cx="355" cy="111" r="5"/>
+                  <circle cx="515" cy="92" r="5"/><circle cx="680" cy="72" r="5"/><circle cx="835" cy="61" r="5"/><circle cx="970" cy="68" r="5"/>
+                </g>
+                <g class="forecast-y-labels">
+                  <text x="12" y="59">100%</text><text x="20" y="119">80%</text><text x="20" y="179">60%</text><text x="20" y="239">40%</text>
+                </g>
               </svg>
-              <div class="forecast-hours">
-                <div><strong>48%</strong><time>06:00</time></div><div><strong>72%</strong><time>09:00</time></div><div><strong>64%</strong><time>12:00</time></div><div class="forecast-severe"><strong>98%</strong><time>15:00</time></div><div><strong>82%</strong><time>18:00</time></div><div><strong>90%</strong><time>21:00</time></div>
+
+              <div class="forecast-events" aria-hidden="true">
+                <div class="forecast-event event-one"><span class="weather-icon">☁</span><b>Scattered allegations</b><small>08:00</small></div>
+                <div class="forecast-event event-two"><span class="weather-icon">⚡</span><b>Sudden boat chat</b><small>11:00</small></div>
+                <div class="forecast-event event-three"><span class="weather-icon">☂</span><b>Rumour showers</b><small>14:00</small></div>
+                <div class="forecast-event event-four"><span class="weather-icon">⚠</span><b>Severe Nick event</b><small>17:00</small></div>
+                <div class="forecast-event event-five"><span class="weather-icon">⛈</span><b>Newsroom thunderstorm</b><small>20:00</small></div>
               </div>
-            </figure>
-            <p class="forecast-advisory"><strong>Afternoon advisory</strong> A severe Nick event may develop without warning. Camera crews should expect prolonged exposure.</p>
-            <p class="forecast-source">BBC Weather Desk · A confidently unverified prediction.</p>
+
+              <div class="forecast-time-axis">
+                <span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="forecast-advisory">
+            <strong>BBC ADVISORY</strong>
+            <span>Probability may briefly fall below 80% during naps. Any camera, race briefing or unexplained group-chat message may cause rapid intensification.</span>
           </div>
         </div>
       </div>
@@ -564,7 +586,7 @@
             <div class="eyebrow">BBC CONTROL ROOM</div>
             <h2>Interactive newsroom nonsense</h2>
           </div>
-          <p>Official statements, unnecessary emergencies and the soundtrack to it all.</p>
+          <p>Three tools built to solve problems that did not exist until this website was created.</p>
         </div>
 
         <div class="control-deck">
@@ -601,14 +623,6 @@
             <p>Give it the red banner treatment it definitely deserves.</p>
             <button class="emergency-inline" id="emergencyInline">DECLARE NATIONAL EMERGENCY</button>
           </article>
-
-          <article class="control-card spotify-card">
-            <span class="mini-tag">BBC AFTER HOURS · MUSIC DESK</span>
-            <h3>SUS Records</h3>
-            <p>The soundtrack to developments the newsroom cannot officially explain.</p>
-            <span class="spotify-caption">Questionable behaviour. Essential listening.</span>
-            <a class="btn mini-action spotify-link" href="https://open.spotify.com/artist/75iba5NiiYk6Pdhe959cJE" target="_blank" rel="noopener noreferrer">Listen on Spotify ↗</a>
-          </article>
         </div>
       </div>
     </section>
@@ -619,23 +633,19 @@
           <div class="eyebrow">BBC CAMERA ROLL</div>
           <h2>Tour evidence, newest first.</h2>
         </div>
-        <p>The evidence will arrive with the crew. Latest dispatches first; questionable memories preserved for posterity.</p>
+        <p>The latest photo always appears first. Scroll backwards as the archive grows.</p>
       </div>
 
       <div class="camera-roll-frame">
         <div class="camera-roll-meta">
-          <span><strong id="cameraRollCount">0</strong> photos in the archive</span>
-          <span>Awaiting first dispatch</span>
+          <span><strong id="cameraRollCount">1</strong> item in the current archive</span>
+          <span>Swipe or horizontal-scroll →</span>
         </div>
         <div class="camera-roll-track" id="cameraRollTrack">
-          <!-- Replace this empty state with camera-roll-item figures, newest first. -->
-          <div class="camera-roll-empty">
-            <span class="camera-empty-face" aria-label="Sad face">:(</span>
-            <span class="camera-empty-kicker">FIELD UNIT ON STANDBY</span>
-            <h3>The tour hasn’t begun yet.</h3>
-            <p>No photos. No evidence. A suspiciously clean record.</p>
-            <span class="camera-empty-footer">The camera roll will fill up once the tour gets underway.</span>
-          </div>
+          <figure class="camera-roll-item">
+            <img src="camera-roll-001.jpg" alt="BEAST crew travelling together on tour">
+            <figcaption><span>Latest</span> The BEAST field unit has officially mobilised. Early reports indicate morale is high and editorial oversight remains absent.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
