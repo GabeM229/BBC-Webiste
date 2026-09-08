@@ -1466,7 +1466,8 @@ body.emergency-open { overflow: hidden; }
 .camera-roll-track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(320px, 44%);
+  grid-auto-columns: minmax(min(320px, 100%), 44%);
+  align-items: start;
   gap: 1px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -1474,6 +1475,7 @@ body.emergency-open { overflow: hidden; }
   scrollbar-color: #666 #111;
 }
 .camera-roll-item {
+  min-width: 0;
   margin: 0;
   background: #171717;
   color: #fff;
@@ -1482,8 +1484,10 @@ body.emergency-open { overflow: hidden; }
 .camera-roll-item img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
   background: #222;
 }
 .camera-roll-item figcaption {
@@ -1560,4 +1564,13 @@ body.emergency-open { overflow: hidden; }
 .crew-photo-link:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
 @media (max-width: 620px) {
   .hero-photo.crew-photo-link { height: 280px; }
+}
+
+/* A lone dispatch gets a centered, fitted frame; multiple photos keep the strip. */
+.camera-roll-frame:has(.camera-roll-item:only-child) {
+  width: min(100%, 760px);
+  margin-inline: auto;
+}
+.camera-roll-track:has(> .camera-roll-item:only-child) {
+  grid-auto-columns: 100%;
 }
