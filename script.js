@@ -505,14 +505,70 @@ const emergencyHeadlines = [
   "TRAFFIC EMERGENCY: Two riggers have entered the same corridor.",
   "RUMOUR ALERT: Gabriel has used the word “confirmed” without documentation."
 ];
+// A locally generated civil-defence-style siren; no audio download required.
+let emergencyAudioContext;
+let emergencySoundNodes = [];
+let emergencySoundGeneration = 0;
+function stopEmergencySound() {
+  emergencySoundGeneration += 1;
+  emergencySoundNodes.forEach(({ oscillator, gain }) => {
+    try { oscillator.stop(); } catch (_) { /* Already ended. */ }
+    oscillator.disconnect();
+    gain.disconnect();
+  });
+  emergencySoundNodes = [];
+}
+async function playEmergencySound() {
+  stopEmergencySound();
+  const generation = emergencySoundGeneration;
+  try {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    emergencyAudioContext = emergencyAudioContext || new AudioContextClass();
+    if (emergencyAudioContext.state === "suspended") await emergencyAudioContext.resume();
+    if (generation !== emergencySoundGeneration) return;
+    const start = emergencyAudioContext.currentTime;
+    // Two abrasive, slightly detuned voices rise and fall for eight seconds.
+    // Their combined gain stays below full scale, avoiding digital clipping.
+    [{ type: "sawtooth", offset: 0, level: 0.30 },
+     { type: "square", offset: 11, level: 0.18 }].forEach(voice => {
+      const oscillator = emergencyAudioContext.createOscillator();
+      const gain = emergencyAudioContext.createGain();
+      const duration = 8;
+      oscillator.type = voice.type;
+      oscillator.frequency.setValueAtTime(380 + voice.offset, start);
+      for (let cycle = 0; cycle < 4; cycle += 1) {
+        oscillator.frequency.linearRampToValueAtTime(1080 + voice.offset, start + cycle * 2 + 1.1);
+        oscillator.frequency.linearRampToValueAtTime(380 + voice.offset, start + cycle * 2 + 2);
+      }
+      gain.gain.setValueAtTime(0, start);
+      gain.gain.linearRampToValueAtTime(voice.level, start + 0.06);
+      gain.gain.setValueAtTime(voice.level, start + duration - 0.15);
+      gain.gain.linearRampToValueAtTime(0, start + duration);
+      oscillator.connect(gain);
+      gain.connect(emergencyAudioContext.destination);
+      const node = { oscillator, gain };
+      emergencySoundNodes.push(node);
+      oscillator.onended = () => {
+        oscillator.disconnect();
+        gain.disconnect();
+        emergencySoundNodes = emergencySoundNodes.filter(item => item !== node);
+      };
+      oscillator.start(start);
+      oscillator.stop(start + duration);
+    });
+  } catch (_) { /* The visual broadcast still works if audio is unavailable. */ }
+}
 function triggerEmergency() {
   if (!emergencyOverlay || !emergencyHeadline) return;
+  playEmergencySound();
   emergencyHeadline.textContent = emergencyHeadlines[Math.floor(Math.random() * emergencyHeadlines.length)];
   emergencyOverlay.classList.add("show");
   emergencyOverlay.setAttribute("aria-hidden", "false");
   document.body.classList.add("emergency-open");
 }
 function closeEmergency() {
+  stopEmergencySound();
   if (!emergencyOverlay) return;
   emergencyOverlay.classList.remove("show");
   emergencyOverlay.setAttribute("aria-hidden", "true");
@@ -527,5 +583,13 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeEmergency();
 });
 
-
-
+// Keep the archive total in sync as new dispatches are added, newest first.
+const cameraRollCount = document.getElementById('cameraRollCount');
+if (cameraRollCount) {
+  const count = document.querySelectorAll('#cameraRollTrack .camera-roll-item').length;
+  cameraRollCount.textContent = String(count);
+  const label = cameraRollCount.nextSibling;
+  if (label && label.nodeType === Node.TEXT_NODE) {
+    label.textContent = count === 1 ? ' photo in the archive' : ' photos in the archive';
+  }
+}
