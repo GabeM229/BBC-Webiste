@@ -1551,3 +1551,8 @@ body.emergency-open { overflow: hidden; }
 .spotify-link { background: #1ed760; color: #071d0f; border: 1px solid #1ed760; }
 .spotify-link:hover { background: #49e681; color: #071d0f; }
 .spotify-link:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+/* Preserve the full portrait crew photo without cropping anyone out. */
+.camera-roll-crew img { height: clamp(360px, 65vh, 600px); aspect-ratio: auto; object-fit: contain; }
+.camera-roll-crew a { display: block; }
+.camera-roll-crew a:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
