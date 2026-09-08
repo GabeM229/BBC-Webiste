@@ -1556,7 +1556,7 @@ body.emergency-open { overflow: hidden; }
 .hero-copy, .hero-card { min-width: 0; }
 .hero-card { width: 100%; overflow: hidden; }
 .hero-photo.crew-photo-link { display: block; width: 100%; height: 340px; aspect-ratio: auto; overflow: hidden; background: #171717; }
-.crew-photo-link img { display: block; width: 100%; max-width: 100%; height: 100%; object-fit: contain; }
+.crew-photo-link img { display: block; width: 100%; max-width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
 .crew-photo-link:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
 @media (max-width: 620px) {
   .hero-photo.crew-photo-link { height: 280px; }
