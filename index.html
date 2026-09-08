@@ -57,12 +57,9 @@
           <span class="live-dot"></span>
           <span>LIVE FROM THE KOWIE</span>
         </div>
-        <div class="placeholder hero-photo">
-          <div>
-            <span>CREW PHOTO</span>
-            <small>Drop your group photo in later</small>
-          </div>
-        </div>
+        <a class="hero-photo crew-photo-link" href="crew-photo.jpg" target="_blank" rel="noopener" aria-label="Open the full crew photo">
+          <img src="crew-photo.jpg" alt="The BEAST crew together on a staircase in matching Tuks tracksuits" width="3213" height="5712" fetchpriority="high">
+        </a>
         <div class="hero-card-caption">
           <strong>BBC NEWSROOM EXCLUSIVE</strong>
           <span>Sources confirm eight men have arrived with one functioning collective brain cell.</span>
@@ -622,22 +619,23 @@
           <div class="eyebrow">BBC CAMERA ROLL</div>
           <h2>Tour evidence, newest first.</h2>
         </div>
-        <p>The first evidence is in. Latest dispatches first; questionable memories preserved for posterity.</p>
+        <p>The evidence will arrive with the crew. Latest dispatches first; questionable memories preserved for posterity.</p>
       </div>
 
       <div class="camera-roll-frame">
         <div class="camera-roll-meta">
-          <span><strong id="cameraRollCount">1</strong> photo in the archive</span>
-          <span>Latest dispatch first →</span>
+          <span><strong id="cameraRollCount">0</strong> photos in the archive</span>
+          <span>Awaiting first dispatch</span>
         </div>
         <div class="camera-roll-track" id="cameraRollTrack">
-          <!-- Add future camera-roll-item figures before this one: newest first. -->
-          <figure class="camera-roll-item camera-roll-crew">
-            <a href="crew-photo.jpg" target="_blank" rel="noopener" aria-label="Open the full crew photo">
-              <img src="crew-photo.jpg" alt="The BEAST crew together on a staircase in matching Tuks tracksuits" width="3213" height="5712" loading="lazy">
-            </a>
-            <figcaption><span>First dispatch</span> The crew has assembled. The newsroom has several follow-up questions.</figcaption>
-          </figure>
+          <!-- Replace this empty state with camera-roll-item figures, newest first. -->
+          <div class="camera-roll-empty">
+            <span class="camera-empty-face" aria-label="Sad face">:(</span>
+            <span class="camera-empty-kicker">FIELD UNIT ON STANDBY</span>
+            <h3>The tour hasn’t begun yet.</h3>
+            <p>No photos. No evidence. A suspiciously clean record.</p>
+            <span class="camera-empty-footer">The camera roll will fill up once the tour gets underway.</span>
+          </div>
         </div>
       </div>
     </section>

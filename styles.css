@@ -1552,7 +1552,7 @@ body.emergency-open { overflow: hidden; }
 .spotify-link:hover { background: #49e681; color: #071d0f; }
 .spotify-link:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
 
-/* Preserve the full portrait crew photo without cropping anyone out. */
-.camera-roll-crew img { height: clamp(360px, 65vh, 600px); aspect-ratio: auto; object-fit: contain; }
-.camera-roll-crew a { display: block; }
-.camera-roll-crew a:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+/* Full crew portrait in the opening news card. */
+.hero-photo.crew-photo-link { display: block; aspect-ratio: auto; background: #171717; }
+.crew-photo-link img { display: block; width: 100%; height: clamp(360px, 65vh, 620px); object-fit: contain; }
+.crew-photo-link:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
