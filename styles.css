@@ -108,7 +108,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .hero {
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
   gap: 42px;
   padding-block: 64px 52px;
 }
@@ -1552,7 +1552,12 @@ body.emergency-open { overflow: hidden; }
 .spotify-link:hover { background: #49e681; color: #071d0f; }
 .spotify-link:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
 
-/* Full crew portrait in the opening news card. */
-.hero-photo.crew-photo-link { display: block; aspect-ratio: auto; background: #171717; }
-.crew-photo-link img { display: block; width: 100%; height: clamp(360px, 65vh, 620px); object-fit: contain; }
+/* Compact crew portrait; intrinsic image dimensions cannot expand the grid. */
+.hero-copy, .hero-card { min-width: 0; }
+.hero-card { width: 100%; overflow: hidden; }
+.hero-photo.crew-photo-link { display: block; width: 100%; height: 340px; aspect-ratio: auto; overflow: hidden; background: #171717; }
+.crew-photo-link img { display: block; width: 100%; max-width: 100%; height: 100%; object-fit: contain; }
 .crew-photo-link:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+@media (max-width: 620px) {
+  .hero-photo.crew-photo-link { height: 280px; }
+}
